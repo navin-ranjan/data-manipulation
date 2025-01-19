@@ -1,0 +1,19 @@
+---------- JOIN -------------------
+
+INNER JOIN: Returns rows with matching values in both tables.
+LEFT JOIN (LEFT OUTER JOIN): Returns all rows from the left table and matching rows from the right table; unmatched rows in the right table are NULL.
+RIGHT JOIN (RIGHT OUTER JOIN): Returns all rows from the right table and matching rows from the left table; unmatched rows in the left table are NULL.
+FULL JOIN (FULL OUTER JOIN): Returns all rows when there is a match in either table; unmatched rows in both tables are NULL.
+CROSS JOIN: Returns the Cartesian product of both tables (all possible combinations of rows).
+SELF JOIN: Joins a table with itself using aliases to differentiate.
+
+--------------- Aggregation ---------------------------
+
+COUNT(): Counts the number of rows (e.g., COUNT(*) for all rows or COUNT(column) for non-NULL values).
+SUM(): Calculates the total sum of a numeric column.
+AVG(): Calculates the average of a numeric column.
+MIN(): Finds the smallest value in a column.
+MAX(): Finds the largest value in a column.
+GROUP BY: Groups rows with the same values into summary rows for aggregation.
+HAVING: Filters aggregated results (used with GROUP BY).
+

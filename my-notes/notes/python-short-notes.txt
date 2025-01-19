@@ -1,0 +1,30 @@
+--------------- List-------------------
+append: Adds a single element to the end of the list.
+insert: Inserts an element at a specified index in the list.
+extend: Adds all elements of an iterable (e.g., another list) to the end of the list.
+remove: Removes the first occurrence of a specified value from the list.
+pop: Removes and returns the element at a specified index (default is the last element).
+del: Deletes an element or slice of elements from the list by index.
+
+---------------Infinite value ----------------
+1. Largest Possible Value: Represented by float('inf'), which means infinity.
+    largest_float = float('inf')
+2. Smallest Possible Value: Represented by float('-inf'), which means negative infinity.
+    smallest_float = float('-inf')
+
+--------------------- Intersection ---------------
+1. list convert into set
+suppose b,c is set the apply intersection 
+    b.intersection(c)
+
+--------------------- Random Number choice ------------
+package - #import random
+suppose a is list apply the random choice method
+    random.choice(a)
+
+---------------------
+
+
+
+
+
