@@ -17,3 +17,5 @@ MAX(): Finds the largest value in a column.
 GROUP BY: Groups rows with the same values into summary rows for aggregation.
 HAVING: Filters aggregated results (used with GROUP BY).
 
+-----------------
+
