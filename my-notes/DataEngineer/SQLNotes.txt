@@ -1,0 +1,62 @@
+1. What is a Database?
+A database is a collection of structured data that is stored and managed electronically. It organizes data in tables (rows & columns) and allows efficient access, retrieval, and manipulation.
+
+2. Types of Databases
+Relational Database (RDBMS) – Stores data in tables with relationships.
+
+Examples: MySQL, PostgreSQL, SQL Server, SQLite, MariaDB
+
+NoSQL Database – Stores data in different formats like key-value, document, column-family, and graph.
+
+Examples: MongoDB, Cassandra, HBase
+
+3. SQL vs NoSQL
+SQL (Structured Query Language): Used for querying relational databases.
+
+NoSQL: Used for handling unstructured and large-scale data.
+
+4. Key Database Concepts
+Primary Key: Uniquely identifies each row in a table.
+
+Foreign Key: Establishes relationships between tables.
+
+Indexing: Improves data retrieval speed.
+
+Normalization: Reduces redundancy in databases.
+
+5. Database Operations
+CRUD Operations: Create, Read, Update, Delete
+
+Transactions: Ensures data integrity (ACID properties – Atomicity, Consistency, Isolation, Durability).
+--------------------------------------------------------------------------------------------------------------
+
+1. What is SQL?
+SQL (Structured Query Language) is used to manage and manipulate relational databases. It allows users to perform operations like querying, updating, inserting, and deleting data.
+
+2. Types of SQL Commands
+DDL (Data Definition Language) – Defines database structure
+
+CREATE, ALTER, DROP, TRUNCATE
+
+DML (Data Manipulation Language) – Modifies data
+
+INSERT, UPDATE, DELETE, SELECT
+
+DCL (Data Control Language) – Controls access
+
+GRANT, REVOKE
+
+TCL (Transaction Control Language) – Manages transactions
+
+COMMIT, ROLLBACK, SAVEPOINT
+
+3. Key SQL Concepts
+Primary Key: Uniquely identifies each record.
+
+Foreign Key: Creates a link between two tables.
+
+Indexing: Speeds up data retrieval.
+
+Joins: Combines data from multiple tables (INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN).
+
+4. SQL Query Example

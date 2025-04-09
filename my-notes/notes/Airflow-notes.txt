@@ -1,0 +1,40 @@
+-------------- DAGs, Tasks, Operators -----------------------
+DAGs (Directed Acyclic Graphs)
+✅ Definition: A DAG is a workflow definition in Airflow that consists of tasks arranged in a dependency order (Directed Acyclic Graph).
+✅ Key Features:
+- Defines task execution order but does not execute tasks itself.
+- Acyclic means tasks must not create loops (no infinite cycles).
+- Scheduled execution based on time or triggers.
+🔹 Example: A DAG could define a process where:
+- Data is extracted.
+- Data is transformed.
+- Data is loaded into a data warehouse.
+
+Tasks
+✅ Definition: A task represents a unit of work in a DAG.
+✅ Types of Tasks:
+- A Python task can execute a Python script.
+- A Bash task can run shell commands.
+- A Spark task can trigger a Spark job.
+🔹 Example: If a DAG defines an ETL pipeline, tasks could be:
+- Task 1: Extract data from SQL
+- Task 2: Transform data using PySpark
+- Task 3: Load data into a data warehouse
+
+Operators
+✅ Definition: Operators define what each task does (the actual logic).
+✅ Types of Operators:
+    PythonOperator → Runs Python functions.
+    BashOperator → Executes shell commands.
+    PostgresOperator → Runs SQL queries.
+    DummyOperator → Used for placeholders in DAGs.
+
+How They Work Together
+DAG → Defines the workflow and task dependencies.
+Tasks → Represent individual units of work in the DAG.
+Operators → Define what each task does (Python, Bash, SQL, etc.).
+
+------------------------------
+
+
+

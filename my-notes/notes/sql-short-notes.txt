@@ -1,11 +1,15 @@
 ---------- JOIN -------------------
+1. INNER JOIN: Returns rows only where there is a match between both tables.
+    Ex - SELECT A.id, A.name, B.salary FROM TableA A INNER JOIN TableB B ON A.id = B.id;
 
-INNER JOIN: Returns rows with matching values in both tables.
-LEFT JOIN (LEFT OUTER JOIN): Returns all rows from the left table and matching rows from the right table; unmatched rows in the right table are NULL.
-RIGHT JOIN (RIGHT OUTER JOIN): Returns all rows from the right table and matching rows from the left table; unmatched rows in the left table are NULL.
-FULL JOIN (FULL OUTER JOIN): Returns all rows when there is a match in either table; unmatched rows in both tables are NULL.
-CROSS JOIN: Returns the Cartesian product of both tables (all possible combinations of rows).
-SELF JOIN: Joins a table with itself using aliases to differentiate.
+2. LEFT JOIN: Returns all rows from the left table and matching rows from the right table with NULL for missing matches.
+    Ex - SELECT A.id, A.name, B.salary FROM TableA A LEFT JOIN TableB B ON A.id = B.id;
+
+3. RIGHT JOIN: Returns all rows from the right table and matching rows from the left table with NULL for missing matches.
+    Ex - SELECT A.id, A.name, B.salary FROM TableA A RIGHT JOIN TableB B ON A.id = B.id;
+    
+4. FULL OUTER JOIN: Returns all rows from both tables, with NULL for missing matches.
+    Ex - SELECT A.id, A.name, B.salary FROM TableA A FULL OUTER JOIN TableB B ON A.id = B.id;
 
 --------------- Aggregation ---------------------------
 

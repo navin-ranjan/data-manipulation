@@ -4,6 +4,7 @@ from pyspark.sql.functions import *
 
 spark=SparkSession.builder.appName("demo-001").getOrCreate()
 
+print(spark.sparkContext.getConf().getAll())
 schema_df=StructType([
     StructField("name", StringType(), True),
     StructField("city", StringType(), True),

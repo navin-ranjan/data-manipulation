@@ -1,0 +1,25 @@
+-------------------- map() and flatMap() in PySpark ---------------------
+#map()
+1. Transforms each element in the RDD/DataFrame one-to-one.
+2. The number of output elements remains the same as input.
+    Example:    
+        rdd = sc.parallelize([1, 2, 3])
+        mapped_rdd = rdd.map(lambda x: [x, x * 2])  # Each element becomes a list
+        print(mapped_rdd.collect())  
+    Output:
+        [[1, 2], [2, 4], [3, 6]]
+
+#flatMap()
+1. Similar to map(), but flattens the result (one-to-many transformation).
+2. The number of output elements can be greater than input.
+    Example:
+        rdd = sc.parallelize(["hello world", "PySpark is fun"])
+        flat_mapped_rdd = rdd.flatMap(lambda x: x.split(" "))  # Splits and flattens
+        print(flat_mapped_rdd.collect())  
+    Output:
+        ['hello', 'world', 'PySpark', 'is', 'fun']
+#Key Differences
+🔹 Use map() when transforming elements one-to-one.
+🔹 Use flatMap() when transforming and flattening elements.
+
+----------------------
