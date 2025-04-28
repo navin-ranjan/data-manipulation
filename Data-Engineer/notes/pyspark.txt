@@ -1,0 +1,5 @@
+----------- sorting df -----
+
+1. df.orderBy("colname") → ascending (default)
+2. df.orderBy(desc("colname")) → descending
+

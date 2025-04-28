@@ -1,0 +1,27 @@
+------------------Keyword---------------------------
+arr = [3,2,5,6,3,25,8]
+
+1. arr.sort() - to sort the arr in ascending order
+2. arr.sort(reverse=True) - to sort arr in reverse order
+3. min(arr) - to find min value of arr
+4. max(arr) - to find max value of arr
+
+-------------------Smallest/Largest value----------------------------
+
+1. min_value = float('-inf') - to smallest possible value
+2. max_value = float('inf') - to largest possible value
+
+------------------- List/Set Conversion----------------------------
+
+a = [2,3,45,6,2,3]  
+b = [3,5,4,3,6,7,8,5]
+c = {3,5,4,8}
+d = {4,3,6,7,8}
+
+1. a_set = set(a) - list to set
+2. c_list = list(c) - set to list
+3. cd_set_merge = c.union(d) - merge two set / Union of two set
+4. ab_list_merge = a + b - to merge two list
+5. a.extend(b) - to merge list in existed list
+
+
