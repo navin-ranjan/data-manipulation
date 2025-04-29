@@ -3,3 +3,31 @@
 1. df.orderBy("colname") → ascending (default)
 2. df.orderBy(desc("colname")) → descending
 
+----------- schema create -------------
+
+from pyspark.sql.types import StructType, StructField, IntegerType, StringType, LongType
+
+schema = StructType([
+    StructField("id", IntegerType(), True),
+    StructField("name", StringType(), True),
+    StructField("age", IntegerType(), True),
+    StructField("salary", LongType(), True)
+])
+
+---------- sample row data ----------
+
+data = [(23, 'navin', 13, 45000),
+        (20, 'rohit', 17, 46000),
+        (21, 'rohan', 23, 50000)]
+
+-------- temp view create -------------
+
+df.createOrReplaceTempView("employees")
+sdf=spark.sql(" select name from employees where salary> 30000 ")
+
+-------- groupBY --------------
+ndf=df.groupBy("region", "product").agg(sum("sales").alias("total_sum"))
+
+
+
+
