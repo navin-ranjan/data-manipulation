@@ -28,6 +28,7 @@ sdf=spark.sql(" select name from employees where salary> 30000 ")
 -------- groupBY --------------
 ndf=df.groupBy("region", "product").agg(sum("sales").alias("total_sum"))
 
+------- join df --------------
 
 
 

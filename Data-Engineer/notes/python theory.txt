@@ -41,6 +41,9 @@ d = {4,3,6,7,8}
     d.pop('age')    # Returns and removes 'age'
     d.clear()       # Removes all items
 
+# Get value of key 'a', increment by 1, and update it
+my_dict['a'] = my_dict.get('a', 0) + 1
+
 # Loop
     for k in d: 
         print(k, d[k])
@@ -64,6 +67,8 @@ d = {4,3,6,7,8}
 
 # Dict Comprehension
     squares = {x: x*x for x in range(5)}  # {0:0, 1:1, ..., 4:16}
+
+
 
 ------------- set operation -----------------------
 
