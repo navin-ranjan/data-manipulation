@@ -144,7 +144,7 @@ From product
 WHERE `Color` IS NOT NULL -- return 256
 
 -- filter count of all
-SELECT COUNT(*) as notnull_row
+SELECT COUNT(*) as total_count
 From product -- return 504
 
 
