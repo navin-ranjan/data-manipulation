@@ -101,3 +101,4 @@ SELECT
 -- 5. CONVERT() with CHARSET (optional)
 SELECT 
     CONVERT('MySQL' USING utf8mb4) AS Utf8String;
+
