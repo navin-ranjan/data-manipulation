@@ -1,0 +1,5 @@
+### Azure Data Factory
+------------ Introduction ------------------
+componnet - pipeline, activity, linked service, dataset, integration runtime IR
+
+-----------copy data within datalake ----

@@ -1,0 +1,34 @@
+#### Data warehouse
+
+ADF <--> AWS Glue
+
+---------- data load -----------
+1. full load
+2. upsert
+3. incremental load
+4. slowling changes dimenssion (SCD)
+
+---------- storage layout model----------
+
+1. row storage -- horizatally partition, slower
+2. column storage -- vertical partition, faster
+3. hybrid store -- cobination of horizatally, vertical partition
+
+----------- Robin round distribution -----------
+--> process with sequency partition p1, p2, p3, p4
+
+---------- Hash distribution ----
+-->process with hashing partition p1, p2, p3, p4
+
+---------- ACID properties -----------------
+1. Atomicity
+2. Consistency
+3. Isolation
+4. Durability
+
+------------- Normalization -------------
+1. 1NF -- no repeating groups
+2. 2NF -- no partial dependency
+3. 3NF -- no transitive dependency
+4. BCNF -- no functional dependency
+
