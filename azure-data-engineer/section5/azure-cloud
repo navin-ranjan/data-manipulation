@@ -1,0 +1,32 @@
+### Start with azure cloud
+#create free trial account
+
+basic of azure cloud navigation
+
+## resouse group
+    create resource group
+
+## create data lake
+    create storage account
+    create container
+
+## Azure SQL Server
+    create sql database
+    create mysql server
+    crate mysql server creadentials #sqladmin #Hna@15498
+    cpu and core configure
+    mysqlsever login
+    mysql console
+
+## Azure Data Factory
+    create data factory
+    lunch data factory studio
+
+## Upgrade to pay-as-you-go
+    select basic plan
+    
+cost management
+bill analysis
+
+
+
