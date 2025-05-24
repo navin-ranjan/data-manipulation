@@ -2,4 +2,29 @@
 ------------ Introduction ------------------
 componnet - pipeline, activity, linked service, dataset, integration runtime IR
 
------------copy data within datalake ----
+### Copy Data Within Datalake
+### Copy Entire Folder with Datalake
+### copy data from ADL CSV to SQL DB
+### copy data from SQL Table to ADL CSV
+### copy data Addition columns csv to SQL DB
+
+
+### set variable activity
+### copy file in time frame
+
+### Expression and functions
+
+### Get Metadata Activity
+
+### ForEach Activity
+### copy each file to new table
+
+### Truncate & Load
+
+### Upsert data copy
+
+
+
+
+
+
