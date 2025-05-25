@@ -23,6 +23,17 @@ componnet - pipeline, activity, linked service, dataset, integration runtime IR
 
 ### Upsert data copy
 
+### Append Variable Acitivity
+
+### copy data with sql query
+### column mapping in copy activity
+
+### Delete Activity
+
+### Stored procedure with copy activity
+### Stored Procedure activity
+
+
 
 
 
