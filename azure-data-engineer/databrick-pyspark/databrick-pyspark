@@ -1,0 +1,20 @@
+### Databrick
+
+- itroduce Databricks
+
+### Apache Spark
+
+- introduce Apache Spark
+- spark components
+- spark architecture
+- spark session / spark context
+- RDD resilient distributed dataset
+
+
+### coding practice
+- create spark session
+- create spark context
+- create RDD
+- Action perform on RDD
+- Transformation perform on RDD
+
