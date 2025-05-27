@@ -17,4 +17,7 @@
 - create RDD
 - Action perform on RDD
 - Transformation perform on RDD
+- lineage graph
+- MapReduce
+
 
