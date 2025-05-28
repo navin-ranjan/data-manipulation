@@ -19,5 +19,11 @@
 - Transformation perform on RDD
 - lineage graph
 - MapReduce
-
-
+- groupByKey
+- reduceByKey
+- filter on RDD
+- Sortby & SortbyKey on RDD
+- top & bottom extract on RDD
+- coalesce & repartition on RDD
+- accumulators
+- broadcast variables
