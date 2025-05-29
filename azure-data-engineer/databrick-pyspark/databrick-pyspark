@@ -1,6 +1,6 @@
 ### Databrick
 
-- itroduce Databricks
+- Introduce Databricks
 
 ### Apache Spark
 
@@ -10,8 +10,8 @@
 - spark session / spark context
 - RDD resilient distributed dataset
 
+### Basic PySpark & RDD Operations
 
-### coding practice
 - create spark session
 - create spark context
 - create RDD
@@ -27,3 +27,36 @@
 - coalesce & repartition on RDD
 - accumulators
 - broadcast variables
+
+### DataFrame
+
+- create df from files
+- type of read files
+- method of dataframe
+- select  & selectExpr
+- pyspark.sql.functions import expr, col, round, lit
+- add / modify column
+- withColumn & withColumns
+- drop column df.drop()
+- rename column df.withColumnRenamed()
+- sort df.sort(), df.orderBy()
+- filter df.filter(), df.where()
+- remove duplicate df.dropDuplicates()
+- combine dataframe df.union(), df.unionByName()
+- pattern with filter / wildcard
+- when & otherwise case statements
+- case conversion
+- groupBy & agg
+- pivot & unpivot
+- window functions
+- Fill null values / NaN values
+- Read csv options
+- schema craete / schema inference
+- write mode files
+- date & time functions
+- RDD to DataFrame
+- Explode & flatten nested data
+- Split & explode array / map 
+
+
+

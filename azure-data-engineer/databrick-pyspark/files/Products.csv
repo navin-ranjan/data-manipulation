@@ -1,0 +1,61 @@
+ProductID,ProductName,Category,Price,InStock,LaunchDate,Rating
+1001,Wireless Mouse,Electronics,15.99,TRUE,2023-05-15,4.3
+1002,Office Chair,Furniture,89.50,FALSE,2022-11-30,4.1
+1003,Coffee Mug,Kitchen,5.25,TRUE,2024-01-20,4.8
+1004,Notebook Stationery,Stationery,1.99,TRUE,2023-08-10,4.0
+1005,Bluetooth Speaker,Electronics,29.99,FALSE,2023-03-12,3.9
+1006,Table Lamp,Furniture,22.00,TRUE,2022-12-25,4.6
+1007,Gaming Keyboard,Electronics,49.99,TRUE,2024-05-01,4.7
+1008,Water Bottle,Kitchen,10.75,,2023-06-18,4.5
+1009,LED Bulb,Electronics,3.99,TRUE,,4.0
+1010,Folding Table,Furniture,55.00,FALSE,2023-01-01,
+1011,Smartphone Stand,Accessories,8.99,TRUE,2024-02-14,4.3
+1012,Laptop Sleeve,Accessories,12.49,TRUE,2022-09-09,4.1
+1013,Wall Clock,Home Decor,19.95,,2023-11-11,3.9
+1014,Bed Sheet,Furniture,35.00,TRUE,2023-03-03,4.2
+1015,Extension Cord,Electronics,7.99,TRUE,2023-04-22,4.0
+1016,Photo Frame,Home Decor,13.00,FALSE,,3.8
+1017,USB Cable,Electronics,2.49,TRUE,2024-01-05,4.4
+1018,Table Fan,Electronics,27.99,,2022-10-10,4.1
+1019,Bookshelf,Furniture,75.00,FALSE,2023-02-12,4.2
+1020,Pillow Cover,Furniture,6.49,TRUE,2023-07-01,3.7
+1021,Laptop Stand,Accessories,18.75,TRUE,2024-03-17,4.6
+1022,Hand Towel,Kitchen,4.00,TRUE,2023-06-21,
+1023,Air Freshener,Home,3.50,FALSE,2023-09-01,3.5
+1024,Soap Dispenser,Bathroom,9.99,TRUE,,4.1
+1025,Wireless Charger,Electronics,24.50,,2022-12-01,4.3
+1026,Storage Box,Home,14.99,TRUE,2023-04-10,4.0
+1027,Iron Box,Electronics,33.30,TRUE,2023-05-05,
+1028,Curtains,Home Decor,45.00,FALSE,2023-07-19,4.2
+1029,Plastic Chair,Furniture,21.75,TRUE,2023-03-16,4.1
+1030,Electric Kettle,Kitchen,28.99,FALSE,2023-02-20,4.4
+1031,TV Remote,Electronics,11.25,TRUE,2024-04-09,4.1
+1032,Mirror,Bathroom,17.99,TRUE,,3.6
+1033,Lunch Box,Kitchen,8.75,FALSE,2023-01-13,4.0
+1034,Dining Set,Furniture,120.00,TRUE,2023-08-05,4.7
+1035,Washing Powder,Kitchen,5.99,,2023-11-20,4.2
+1036,Night Lamp,Home Decor,16.50,FALSE,2022-11-28,3.8
+1037,Chopping Board,Kitchen,6.25,TRUE,2023-04-15,4.0
+1038,Alarm Clock,Home Decor,14.99,TRUE,,4.1
+1039,Toaster,Kitchen,18.99,FALSE,2023-06-22,4.3
+1040,Hair Dryer,Electronics,25.50,TRUE,2023-07-30,4.5
+1041,Pen Drive,Electronics,9.99,,2023-08-01,4.4
+1042,Notebook,Stationery,2.00,TRUE,2023-03-03,3.9
+1043,Drawing Book,Stationery,3.50,FALSE,2023-02-14,4.0
+1044,Gel Pen,Stationery,1.50,TRUE,2024-01-25,4.2
+1045,Stapler,Stationery,2.99,TRUE,2023-04-10,
+1046,Earphones,Electronics,14.75,FALSE,2023-05-20,4.3
+1047,Desk Mat,Furniture,11.99,TRUE,2023-06-15,4.0
+1048,Fan Heater,Electronics,49.00,TRUE,,4.4
+1049,Power Strip,Electronics,13.50,TRUE,2023-08-18,4.1
+1050,Dish Rack,Kitchen,20.99,FALSE,2023-10-10,4.2
+1051,Toothbrush Holder,Bathroom,6.75,TRUE,,3.7
+1052,Measuring Cups,Kitchen,7.00,TRUE,2023-02-28,4.3
+1053,Cable Organizer,Accessories,4.99,FALSE,2023-03-01,4.0
+1054,Sticky Notes,Stationery,1.20,TRUE,2023-01-05,3.9
+1055,Whiteboard Marker,Stationery,1.75,TRUE,2023-09-14,4.1
+1056,Blender,Kitchen,34.99,FALSE,,4.0
+1057,Vacuum Cleaner,Electronics,110.00,TRUE,2023-07-07,4.5
+1058,Water Purifier,Kitchen,95.00,FALSE,2022-10-15,4.6
+1059,Notebook Cooler,Electronics,23.75,TRUE,2023-06-03,4.1
+1060,Wall Shelf,Furniture,42.99,,2023-05-08,4.0
