@@ -1,7 +1,7 @@
 #### Linkedin Massasge Template
 
 Hi [Name],
-I hope you're doing well. I'm currently exploring opportunities in Data Engineering.
+I hope you're doing well. I'm currently seeking new opportunities in Data Engineering.
 
 I have 3 years of experience building ETL pipelines using Azure tools (Data Factory, Databricks, ADLS Gen2, Synapse Analytics), along with SQL, PySpark, and Python. I’m also skilled in Hadoop, Spark, DSA, and Airflow for orchestration.
 
@@ -23,7 +23,7 @@ I hope you're doing well. I'm currently seeking new opportunities in Data Engine
 
 My name is Navin Ranjan, and I am a Big Data Developer with over 3 years of experience at Rakuten Symphony. I have hands-on experience building ETL pipelines using Azure tools (Data Factory, Databricks, ADLS Gen2, Synapse Analytics), along with SQL, PySpark, and Python. I'm also skilled in Hadoop, Spark, DSA, and Airflow for workflow orchestration.
 
-Please find my resume attached for your reference. I would appreciate the opportunity to discuss further how my background and skills align with your with your data engineering needs.
+Please find my resume attached for your reference. I would appreciate the opportunity to discuss further how my background and skills align with your data engineering needs.
 
 Thank you for your time and consideration.
 
