@@ -2,7 +2,7 @@
 --------------------
 1. Havells India Ltd (Noida) #Priti Awasthi
 ---------------------
-2. Visa (Bengaluru) #Ruhi K
+2. Visa (Bengaluru) #Ruhi K ---
 https://www.linkedin.com/jobs/search/?currentJobId=4240774044
 
 ---------------------
@@ -44,12 +44,13 @@ https://www.linkedin.com/jobs/search/?currentJobId=4240113694
 sonali.mangore@impetus.com with details (CTC, Expected CTC, Notice Period)
 
 -----------------
-12. LTIMindtree #I Balaji
+12. LTIMindtree #I Balaji --
 https://www.linkedin.com/jobs/search/?currentJobId=4236816506
 
 -----------------
-13. Velotio Technologies #Sangam Bharadia 
+13. Velotio Technologies #Sangam Bharadia  ---
 https://www.linkedin.com/jobs/search/?currentJobId=4239514462&f_TPR=r604800
+https://apply.workable.com/velotio/j/A5813D4112/
 
 ----------------
 14. Ubique Systems #P Rajalaxmi Dora
@@ -74,7 +75,7 @@ https://www.linkedin.com/jobs/search/?currentJobId=4233842854 ----
 https://www.linkedin.com/jobs/search/?currentJobId=4239269415
 
 -----------------
-19. WNS, Gurgaon #Kumari Sakshi
+19. WNS, Gurgaon #Kumari Sakshi ---
 Google Form  -- last working date 10 july
 
 ---------------
