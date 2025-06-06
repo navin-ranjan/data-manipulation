@@ -112,16 +112,68 @@ select order_date, COUNT(order_date) sales from sales_orders
 GROUP BY order_date;
 
 -- 21. List customers whose feedback is in the **top 25%** (quartile logic).
+Set @total := (select count(feedback_rating) from sales_orders where feedback_rating is not NULL);
+SET @conum := CEIL(@total * 0.25);
+
+with ctetable as (
+    select customer_name, feedback_rating, ROW_NUMBER() over(order by feedback_rating desc) as rnk from sales_orders
+)
+select customer_name, feedback_rating, rnk from ctetable where rnk <= @conum;
 
 
 
-22. Calculate average delivery time (in days) for each city.
-23. Find the percentage of orders that were delivered within 3 days.
-24. Show rank of each order (by amount) using `RANK()` window function.
-25. List orders that had the **maximum discount** within each product category.
-26. Count how many orders were placed in the **same month as today**.
-27. Identify product categories with more than **50% of orders missing feedback**.
-28. Find all customers who never gave feedback but received a discount.
+
+-- 22. Calculate average delivery time (in days) for each city.
+select city, avg(DATEDIFF(delivery_date, order_date)) as av from sales_orders
+where delivery_date is not null GROUP BY city;
+
+--23. Find the percentage of orders that were delivered within 3 days.
+SELECT 
+  ROUND(
+    100 * COUNT(CASE WHEN DATEDIFF(delivery_date, order_date) <= 3 THEN 1 END) 
+    / COUNT(*), 2
+  ) AS delivery_within_3_days_percent
+FROM 
+  sales_orders
+WHERE 
+  delivery_date IS NOT NULL AND order_date IS NOT NULL;
+
+
+select ROUND(100*count(
+    CASE 
+        WHEN DATEDIFF(delivery_date, order_date)<=3 THEN 1 
+    END
+)/count(*),2) as per from sales_orders
+WHERE delivery_date is not null and order_date is NOT null;
+
+
+--24. Show rank of each order (by amount) using `RANK()` window function.
+select order_id, customer_name, amount,
+RANK() over(order by amount) rnkamount
+from sales_orders;
+
+-- 25. List orders that had the **maximum discount** within each product category.
+SELECT *
+FROM (
+  SELECT *,
+    RANK() OVER (PARTITION BY product_category ORDER BY discount DESC) AS rnk
+  FROM sales_orders
+  WHERE discount IS NOT NULL
+) AS ranked_orders
+WHERE rnk = 1;
+
+-- 26. Count how many orders were placed in the **same month as today**.
+select m_num, count(m_num) as c_month from (
+    select MONTH(order_date) m_num from sales_orders
+) as tbl
+group by m_num;
+
+-- 27. Identify product categories with more than **50% of orders missing feedback**.
+
+select product_category, COUNT(feedback_rating) from sales_orders where feedback_rating is null GROUP BY product_category;
+
+-- 28. Find all customers who never gave feedback but received a discount.
+SELECT * from sales_orders where feedback_rating is null and discount is not null;
 
 
 
