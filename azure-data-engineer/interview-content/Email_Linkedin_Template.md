@@ -94,3 +94,29 @@ Navin Ranjan
 
 
 #more content
+
+
+================================== Updated Content ============================================
+
+
+Hi Narmrata,
+
+I hope you're doing well. I'm currently seeking new opportunities in Data Engineering.
+
+I am writing to express my interest in the "Data Engineer" position at your organization, and Believe I am a good fit for this role.
+
+Highest Qualification : MCA 2022 (NIT Bhopal)
+Total Experience : 3 years of experience
+Current Organization :  Rakuten Symphony
+Core Skills: Python, PySpark, SQL, Databricks, Spark, ETL, Data Structures And Algorithm.
+Cloud Technologies: Azure Cloud Servies (Data Factory, Databricks, ADLS Gen2, Synapse Analytics)  
+Solved 350+ coding problems on GeeksforGeeks and LeetCode platform.
+
+Please find my resume attached for your reference. I would appreciate the opportunity to discuss how I can contribute to your team.
+
+Thanks and Regards,
+Navin Ranjan
+Email ID: navinranjan15498@gmail.com
+Mobile No.: +91 79798198668
+LinkedIn: https://www.linkedin.com/in/navin-ranjan-2a16a6194/
+GitHub: https://github.com/navin-ranjan
