@@ -1,5 +1,7 @@
 
-### ✅ 1. **Introduction to Azure Data Engineering**
+
+
+## ✅ 1. **Introduction to Azure Data Engineering**
 
 1. What is Azure Data Engineering?
 2. What are the main components of the Azure Data Platform?
@@ -14,7 +16,7 @@
 
 ---
 
-### ✅ 2. **Azure Data Factory (ADF)**
+## ✅ 2. **Azure Data Factory (ADF)**
 
 1. What is Azure Data Factory?
 2. What are pipelines, activities, and datasets in ADF?
@@ -38,7 +40,7 @@
 
 ---
 
-### ✅ 3. **Azure Data Lake Storage (ADLS)**
+## ✅ 3. **Azure Data Lake Storage (ADLS)**
 
 1. What is Azure Data Lake Storage?
 2. What is the difference between ADLS Gen1 and Gen2?
@@ -55,7 +57,7 @@
 
 ---
 
-### ✅ 4. **Azure Databricks**
+## ✅ 4. **Azure Databricks**
 
 1. What is Azure Databricks?
 2. What are the main features of Azure Databricks?
@@ -77,7 +79,7 @@
 
 ---
 
-### ✅ 5. **Azure Synapse Analytics**
+## ✅ 5. **Azure Synapse Analytics**
 
 1. What is Azure Synapse Analytics?
 2. What are the components: SQL pools, Spark pools, Pipelines?
@@ -97,7 +99,7 @@
 
 ---
 
-### ✅ 6. **Azure DevOps for Data Engineering**
+## ✅ 6. **Azure DevOps for Data Engineering**
 
 1. What is Azure DevOps?
 2. How do you use DevOps for CI/CD in data engineering?
@@ -113,7 +115,7 @@
 
 ---
 
-### ✅ 7. **Security, Monitoring & Best Practices**
+## ✅ 7. **Security, Monitoring & Best Practices**
 
 1. How do you secure data across Azure data services?
 2. What is Role-Based Access Control (RBAC) in Azure?
@@ -128,7 +130,7 @@
 
 ---
 
-### ✅ 8. **Real-World Scenarios & Case Studies**
+## ✅ 8. **Real-World Scenarios & Case Studies**
 
 1. How do you design an end-to-end data pipeline in Azure?
 2. How do you migrate on-premises data to Azure?
@@ -143,7 +145,7 @@
 
 ---
 
-### ✅ 9. **Azure Stream Analytics & Real-Time Data (Optional)**
+## ✅ 9. **Azure Stream Analytics & Real-Time Data**
 
 1. What is Azure Stream Analytics?
 2. How do you process real-time streaming data in Azure?
@@ -155,6 +157,34 @@
 8. What are common use cases for streaming pipelines in Azure?
 
 ---
+
+## ✅ 10. **Data Warehousing in Azure**
+
+1. What is a Data Warehouse?
+2. How is a data warehouse different from a data lake?
+3. What is Azure Synapse used for in data warehousing?
+4. What is a star schema and snowflake schema?
+5. What is dimensional modeling?
+6. What is a fact table and dimension table?
+7. What are surrogate keys and natural keys?
+8. What is denormalization, and why is it used in data warehouses?
+9. What is data partitioning in a data warehouse?
+10. What are slowly changing dimensions (SCDs)? What are types 1, 2, 3?
+11. What is schema-on-write vs. schema-on-read?
+12. What is data latency in warehousing?
+13. How do you optimize performance in a cloud data warehouse?
+14. What is PolyBase in Synapse and how is it used?
+15. What are best practices in designing a data warehouse on Azure?
+16. How do you manage data refresh and data loads in a warehouse?
+17. What is a warehouse maintenance plan (vacuum, compact, stats)?
+18. What is the difference between traditional DWH and cloud DWH?
+19. What is workload management in Synapse?
+20. How do you implement time travel or audit logs in a DWH?
+
+---
+
+
+
 
 
 --------------------------------------------------------------------------------------------------------
