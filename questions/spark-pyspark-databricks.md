@@ -9,8 +9,8 @@
 2. What are the main features of Spark?
 3. What is PySpark?
 4. What are the advantages of Spark over Hadoop MapReduce?
-5. What are the main components of Spark?
-6. What is the Spark ecosystem?
+5. Main Components of Spark Execution Architecture?
+6. What is the Spark component or ecosystem?
 7. What is the role of the Spark driver and executor?
 8. What is a Spark application?
 9. What is lazy evaluation in Spark?
