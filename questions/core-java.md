@@ -51,10 +51,10 @@
 1. What is Object-Oriented Programming (OOP)?
 2. What are the four main principles of OOP?
 3. What is a class and an object in Java?
-4. What is inheritance in Java?
-5. What is polymorphism in Java?
-6. What is encapsulation?
-7. What is abstraction?
+4. What is inheritance in Java? with Example
+5. What is polymorphism in Java? with Example
+6. What is encapsulation? with Example
+7. What is abstraction? with Example
 8. What is the `this` keyword?
 9. What is the `super` keyword?
 10. What is method overloading?
@@ -109,26 +109,32 @@
 1. What is the Java Collections Framework?
 2. What are the main interfaces in the Collections framework?
 3. What is the difference between List, Set, and Map?
-4. What is an ArrayList?
-5. What is a LinkedList?
-6. What is a HashSet?
-7. What is a TreeSet?
-8. What is a HashMap?
-9. What is a TreeMap?
-10. What is the difference between HashMap and Hashtable?
-11. What is an Iterator in Java?
-12. What is a ListIterator?
-13. How do you sort collections in Java?
-14. What is the difference between Comparable and Comparator?
-15. What is fail-fast vs fail-safe iterator?
-16. What is a LinkedHashMap and LinkedHashSet?
-17. What is a Queue and Deque in Java?
-18. What is a PriorityQueue in Java?
-19. What is EnumMap or WeakHashMap?
+4. What are the main implementations of List, Set, and Map?
+5. How do you create a List, Set, and Map in Java?
+6. How do you access, update, and delete elements in a List?
+7. How do you access, update, and delete elements in a Set?
+8. How do you access, update, and delete elements in a Map?
+9. What is an ArrayList? When should you use it?
+10. What is a LinkedList? When should you use it?
+11. What is a HashSet? When should you use it?
+12. What is a TreeSet? When should you use it?
+13. What is a LinkedHashSet?
+14. What is a HashMap? When should you use it?
+15. What is a TreeMap? When should you use it?
+16. What is a LinkedHashMap?
+17. What is the difference between HashMap and Hashtable?
+18. What is the difference between HashMap and LinkedHashMap?
+19. What is EnumMap? What is WeakHashMap?
 20. How is HashMap implemented in Java?
-21. What is the difference between HashMap and LinkedHashMap?
-22. Why is hashCode() and equals() important in HashMap?
-23. What happens if hashCode() returns the same value for all keys?
+21. Why are hashCode() and equals() important in HashMap?
+22. What happens if hashCode() returns the same value for all keys?
+23. What is an Iterator in Java? How do you use it?
+24. What is a ListIterator? How is it different from Iterator?
+25. What is fail-fast vs fail-safe iterator?
+26. How do you sort collections in Java?
+27. What is the difference between Comparable and Comparator?
+28. What is a Queue and Deque in Java?
+29. What is a PriorityQueue in Java?
 
 ---
 
