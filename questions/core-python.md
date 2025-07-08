@@ -16,7 +16,7 @@ Q9: What does it mean that Python is dynamically typed?
 
 Q1: What is a variable in Python?
 Q2: List commonly used data types.
-Q3: What is dynamic typing? 🚩Duplicate (see 1.9)
+Q3: What is dynamic typing? 
 Q4: What does None mean in Python?
 Q5: How can we find the type of a variable?
 

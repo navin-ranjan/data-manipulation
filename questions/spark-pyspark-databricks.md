@@ -264,6 +264,25 @@
 
 ---
 
+### **PySpark: Date and Cast Operations**
+
+#### **Date Operations**
+1. How do you convert a string column to a date column in PySpark?
+2. How do you extract the year, month, or day from a date column?
+3. How do you add or subtract days/months/years to a date column?
+4. How do you calculate the difference between two date columns?
+5. How do you filter rows based on a date range?
+6. How do you format a date column as a string in a specific format?
+
+#### **Cast Operations**
+1. How do you cast a column from one data type to another in PySpark?
+2. How do you cast a string column to integer, float, or date?
+3. What happens if the cast operation fails (e.g., invalid data)?
+4. How do you check the data type of a column in a DataFrame?
+5. How do you cast multiple columns at once in PySpark?
+
+
+
 
 
 -----------------------------------------------------------------------------------------------
