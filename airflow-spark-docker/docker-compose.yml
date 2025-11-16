@@ -4,7 +4,7 @@ services:
 
   # ----------------------- SPARK MASTER -----------------------
   spark-master:
-    image: apache/spark:3.5.1
+    image: local-spark:3.5.7
     container_name: spark-master
     entrypoint: ["/opt/spark/bin/spark-class","org.apache.spark.deploy.master.Master"]
     environment:
@@ -18,7 +18,7 @@ services:
 
 # ----------------------- SPARK WORKER -----------------------
   spark-worker:
-    image: apache/spark:3.5.1
+    image: local-spark:3.5.7
     container_name: spark-worker
     depends_on:
       - spark-master
@@ -49,26 +49,27 @@ services:
 
   # ---------------- AIRFLOW ----------------
   airflow:
-      image: apache/airflow:2.10.2
-      container_name: airflow
-      ports:
-        - "8080:8080"
-      volumes:
-        - ./dags:/opt/airflow/dags
-        - ./requirements.txt:/requirements.txt
-      environment:
-        - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
-        - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
-      
-      command: >
-        bash -c "
-        python -m pip install --no-cache-dir -r /requirements.txt ;
-        airflow db init ;
-        airflow users create --username admin --password admin --firstname Navin --lastname R --role Admin --email admin@example.com || true ;
-        airflow scheduler &
-        exec airflow webserver
-        "
-
+    image: local-airflow:2.10.2
+    container_name: airflow
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./spark-apps:/opt/spark-apps      # IMPORTANT
+      - ./requirements.txt:/requirements.txt
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
+    command: >
+      bash -c "
+      pip install -r /requirements.txt ;
+      airflow db init ;
+      airflow users create --username admin --password admin --firstname Navin --lastname R --role Admin --email admin@example.com || true ;
+      airflow scheduler &
+      exec airflow webserver
+      "
+    depends_on:
+      - spark-master
 
 
 

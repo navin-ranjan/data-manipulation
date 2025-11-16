@@ -8,8 +8,12 @@ with DAG(
     schedule_interval="@once",
     catchup=False,
 ) as dag:
-    SparkSubmitOperator(
-        task_id="run_spark_job",
-        application="/opt/spark-apps/jobs/sample_spark_job.py",
-        conn_id="spark_default",
-    )
+   SparkSubmitOperator(
+    task_id="run_spark_job",
+    application="/opt/spark-apps/jobs/sample_spark_job.py",
+    name="minio-spark",
+    conn_id="spark_default",
+    executor_memory="1g",
+    driver_memory="1g",
+    verbose=True
+)
