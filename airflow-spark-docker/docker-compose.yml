@@ -1,0 +1,120 @@
+version: "3.9"
+
+services:
+
+  # ----------------------- SPARK MASTER -----------------------
+  spark-master:
+    image: apache/spark:3.5.1
+    container_name: spark-master
+    entrypoint: ["/opt/spark/bin/spark-class","org.apache.spark.deploy.master.Master"]
+    environment:
+      SPARK_NO_DAEMONIZE: "true"
+      SPARK_MASTER_PORT: 7077
+      SPARK_MASTER_WEBUI_PORT: 8080
+    ports:
+      - "7077:7077"
+      - "8081:8080"
+    restart: unless-stopped
+
+# ----------------------- SPARK WORKER -----------------------
+  spark-worker:
+    image: apache/spark:3.5.1
+    container_name: spark-worker
+    depends_on:
+      - spark-master
+    entrypoint: ["/opt/spark/bin/spark-class","org.apache.spark.deploy.worker.Worker","spark://spark-master:7077"]
+    environment:
+      SPARK_NO_DAEMONIZE: "true"
+      SPARK_WORKER_CORES: 2
+      SPARK_WORKER_MEMORY: 2G
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_WEBUI_PORT: 8081
+    ports:
+      - "8082:8081"
+    restart: unless-stopped
+
+  # ---------------- MINIO ----------------
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: password123
+    volumes:
+      - ./data:/data
+
+  # ---------------- AIRFLOW ----------------
+  airflow:
+      image: apache/airflow:2.10.2
+      container_name: airflow
+      ports:
+        - "8080:8080"
+      volumes:
+        - ./dags:/opt/airflow/dags
+        - ./requirements.txt:/requirements.txt
+      environment:
+        - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+        - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
+      
+      command: >
+        bash -c "
+        python -m pip install --no-cache-dir -r /requirements.txt ;
+        airflow db init ;
+        airflow users create --username admin --password admin --firstname Navin --lastname R --role Admin --email admin@example.com || true ;
+        airflow scheduler &
+        exec airflow webserver
+        "
+
+
+
+
+# ----------------------- ZOOKEEPER -----------------------
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    restart: unless-stopped
+
+# ----------------------- KAFKA -----------------------
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: kafka
+    depends_on:
+    - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+    # LISTENERS INSIDE CONTAINER
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092
+
+    # ADVERTISED LISTENER (VERY IMPORTANT!!)
+    # Should be kafka:29092 for Docker internal network
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092
+
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "29092:29092"
+    restart: unless-stopped
+
+# ----------------------- KAFKA UI -----------------------
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - "8085:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    depends_on:
+      - kafka
+      - zookeeper
