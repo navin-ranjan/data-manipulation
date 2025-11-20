@@ -16,7 +16,7 @@ with DAG(
 
     run_spark_job = SparkSubmitOperator(
         task_id="run_sample_spark_job",
-        application="/home/navin/airflow-home/spark-jobs/sample.py",
+        application="/home/navin/data-manipulation/airflow-spark/spark-jobs/sample.py",
         conn_id="spark_default",
         verbose=True,
     )
