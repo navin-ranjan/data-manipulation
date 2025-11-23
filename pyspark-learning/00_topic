@@ -1,0 +1,15 @@
+1. RDD
+
+- Creating RDD using Python variable
+- Creating RDD using TextFile
+- Creating RDD by applying Transformation on existing RDDs
+
+2. RDD Tranformations
+
+- Glom()
+- Map
+- MapPartitions
+- MapPartitionsWithIndex
+- MapValues
+
+3. 
