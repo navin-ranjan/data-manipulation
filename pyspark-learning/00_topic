@@ -11,5 +11,12 @@
 - MapPartitions
 - MapPartitionsWithIndex
 - MapValues
+- FlatMap
 
-3. 
+- Key pair Value RDD
+- GroupByKey()
+- ReduceByKey()
+
+
+
+
