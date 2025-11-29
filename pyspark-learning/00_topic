@@ -24,8 +24,18 @@
 
 - Creating Dataframe with 
     csv, txt, RDD, JSON, XML, Parquet, ORC, Avro, Sequence, TSV, Pipe Separated
-- inferSchema, header, sep, Delimeter
+- InferSchema, header, sep, Delimeter
+
 - Schema
+
+- DataFrame Action
+
+- DataFame Transformation
+- select, selectExpr, col, referance col expr
+- where, filter
+- withcolumn, withColumnRenamed
+- case expression
+
 
 
 

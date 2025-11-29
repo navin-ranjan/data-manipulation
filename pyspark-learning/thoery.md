@@ -1380,6 +1380,171 @@ Other formats: JSON, Parquet, ORC, Avro
 ---
 
 
+# 🚀 PySpark DataFrame Transformations
+
+📌 A **Transformation** creates a **new DataFrame** from an existing one.
+📌 Spark uses **Lazy Evaluation** → executes only when an **Action** is called.
+
+---
+
+## 1️⃣ `select()` — Select specific columns
+
+```python
+df.select("name", "age").show()
+```
+
+📌 Also supports **column operations**
+
+```python
+from pyspark.sql.functions import col
+
+df.select(col("age") + 5).show()
+```
+
+---
+
+## 2️⃣ `selectExpr()` — SQL-like expressions inside select
+
+```python
+df.selectExpr("name", "age * 2 as age2").show()
+```
+
+✔ Best for complex SQL operations
+✔ No need to use functions like `col()` or `expr()`
+
+---
+
+## 3️⃣ `col()` — Reference column object
+
+```python
+df.select(col("name")).show()
+```
+
+➡️ Mostly used in expressions, filtering, and aliasing.
+
+---
+
+## 4️⃣ `expr()` — SQL Expression inside PySpark code
+
+```python
+from pyspark.sql.functions import expr
+
+df.select(expr("age + 10 as new_age")).show()
+```
+
+---
+
+## 🔥 Comparison
+
+| Function       | Usage                      | Supports SQL Expression? |
+| -------------- | -------------------------- | ------------------------ |
+| `select()`     | Select columns             | No                       |
+| `selectExpr()` | SQL expression as string   | Yes                      |
+| `col()`        | Reference column in Python | No                       |
+| `expr()`       | Apply SQL logic            | Yes                      |
+
+---
+
+## 5️⃣ `where()` vs `filter()` — Filter rows
+
+```python
+df.filter(col("age") > 25).show()
+df.where("age > 25").show()
+```
+
+➡️ Both are same
+➡️ `where()` is more SQL-style
+
+---
+
+## 6️⃣ `withColumn()` — Add or modify a column
+
+```python
+df.withColumn("age_plus_5", col("age") + 5).show()
+```
+
+✔ Used to **create**, **update**, **cast** columns
+
+```python
+df.withColumn("age", col("age").cast("string"))
+```
+
+---
+
+## 7️⃣ `withColumnRenamed()` — Rename column
+
+```python
+df.withColumnRenamed("name", "full_name").show()
+```
+
+✔ Only renames one column at a time
+✔ For multiple → use chaining or select alias
+
+---
+
+## 8️⃣ CASE Expression in PySpark
+
+### Using `when()` + `otherwise()`
+
+```python
+from pyspark.sql.functions import when
+
+df.withColumn(
+    "category",
+    when(col("age") >= 30, "Senior")
+    .when(col("age") >= 25, "Young")
+    .otherwise("Junior")
+).show()
+```
+
+---
+
+### Using SQL `CASE WHEN` with expr
+
+```python
+df.withColumn(
+    "category",
+    expr("CASE WHEN age >= 30 THEN 'Senior' ELSE 'Junior' END")
+).show()
+```
+
+---
+
+## 🎯 Summary Table (Transformation Cheatsheet)
+
+| Transformation        | Purpose                                        |
+| --------------------- | ---------------------------------------------- |
+| `select()`            | Select/modify columns using Python expressions |
+| `selectExpr()`        | Select columns using SQL expressions           |
+| `col()`               | Reference column in Python                     |
+| `expr()`              | SQL-based column expressions                   |
+| `filter()`/`where()`  | Row filtering                                  |
+| `withColumn()`        | Add or modify column                           |
+| `withColumnRenamed()` | Rename column                                  |
+| `when()/otherwise()`  | Conditional case expression                    |
+
+---
+
+## 🧠 Interview Keywords to Mention
+
+✔ Lazy Evaluation
+✔ Narrow vs Wide Transformations
+✔ Optimized execution using Catalyst Optimizer
+✔ Avoid `withColumn()` inside loops (performance issue)
+✔ Push-down filtering improves performance
+
+---
+
+If you're ready, the next topic could be:
+
+1️⃣ DataFrame **Joins**
+2️⃣ Handling **NULL / Missing Data**
+3️⃣ Aggregations (`groupBy`, `agg`, `sum`, `avg`, `count`)
+4️⃣ Window Functions
+
+Which one should we do next?
+
+
 
 
 
