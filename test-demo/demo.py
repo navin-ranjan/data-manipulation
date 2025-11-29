@@ -11,3 +11,4 @@ for key, value in all_configs:
     print(f"{key}: {value}")
 # Stop the SparkSession
 spark.stop()
+

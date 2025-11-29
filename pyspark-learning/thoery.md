@@ -1535,14 +1535,542 @@ df.withColumn(
 
 ---
 
-If you're ready, the next topic could be:
+Perfect! Here are clear study notes on **Sorting in PySpark** with all required details 👇
 
-1️⃣ DataFrame **Joins**
-2️⃣ Handling **NULL / Missing Data**
-3️⃣ Aggregations (`groupBy`, `agg`, `sum`, `avg`, `count`)
-4️⃣ Window Functions
+---
+
+# 🔷 Sorting in DataFrames
+
+Sorting is a **wide transformation** → requires **shuffle** across partitions.
+
+PySpark provides:
+
+* `orderBy()`
+* `sort()` → alias of `orderBy()`
+
+---
+
+## 1️⃣ `orderBy()` / `sort()`
+
+Sort using one or more columns.
+
+```python
+df.orderBy("age").show()
+df.sort("age").show()  # Same result
+```
+
+---
+
+## 2️⃣ Sort in **Ascending Order**
+
+✔ Default sorting order = ascending (`asc`)
+
+```python
+from pyspark.sql.functions import col
+
+df.orderBy(col("age").asc()).show()
+```
+
+Even simpler:
+
+```python
+df.orderBy(col("age")).show()
+```
+
+---
+
+## 3️⃣ Sort in **Descending Order**
+
+```python
+df.orderBy(col("age").desc()).show()
+```
+
+---
+
+## 4️⃣ Sorting Multiple Columns
+
+Example → priority sorting
+1️⃣ age descending
+2️⃣ name ascending
+
+```python
+df.orderBy(col("age").desc(), col("name").asc()).show()
+```
+
+---
+
+## 5️⃣ Handling NULLs while sorting
+
+By default:
+
+* In **ascending** → NULLs appear **first**
+* In **descending** → NULLs appear **last**
+
+But we can override this 👇
+
+---
+
+### 🔹 `asc_nulls_first`
+
+```python
+df.orderBy(col("age").asc_nulls_first()).show()
+```
+
+✔ Null values first
+✔ Remaining values ascending
+
+---
+
+### 🔹 `desc_nulls_last`
+
+```python
+df.orderBy(col("age").desc_nulls_last()).show()
+```
+
+✔ Highest values first
+✔ Null values at the end
+
+---
+
+### 🔹 More options:
+
+| Function             | Sort | Nulls Position |
+| -------------------- | ---- | -------------- |
+| `asc_nulls_first()`  | ASC  | NULL → First   |
+| `asc_nulls_last()`   | ASC  | NULL → Last    |
+| `desc_nulls_first()` | DESC | NULL → First   |
+| `desc_nulls_last()`  | DESC | NULL → Last    |
+
+Example:
+
+```python
+df.orderBy(col("age").asc_nulls_last()).show()
+```
+
+---
+
+## 6️⃣ Sorting using column name strings
+
+```python
+df.orderBy("age", "name").show()
+```
+
+But no null handling with string syntax.
+
+---
+
+## ⚡ Performance Tip
+
+Sorting triggers **shuffle**, often expensive:
+
+| Operation                | Shuffle?            |
+| ------------------------ | ------------------- |
+| `orderBy()`              | YES                 |
+| `sortWithinPartitions()` | NO shuffle — faster |
+
+If global ordering not required:
+
+```python
+df.sortWithinPartitions("age").show()
+```
+
+---
+
+## 🧠 Interview Notes
+
+* `orderBy()` = **global sort** (across cluster)
+* `sortWithinPartitions()` = **local sort within partition**
+* Sorting is a **wide transformation**
+* NULL ordering is important in real-world ETL
+
+Example: Sorting by timestamp but keeping missing timestamps at bottom:
+
+```python
+df.orderBy(col("event_time").asc_nulls_last()).show()
+```
+
+---
+
+## Quick Summary Table
+
+| Function                                 | Purpose                   |
+| ---------------------------------------- | ------------------------- |
+| `orderBy()` / `sort()`                   | Global sort               |
+| `asc()` / `desc()`                       | Sort direction            |
+| `asc_nulls_last()`, `desc_nulls_first()` | Control position of nulls |
+| `sortWithinPartitions()`                 | Faster, no shuffle        |
+
+---
+
+
+# 🔷 PySpark GroupBy & Aggregations
+
+👉 `groupBy()` is used for **grouping rows** based on column values
+👉 Mostly combined with **aggregation** functions
+
+---
+
+## 🧩 Dataset Example
+
+```python
+data = [
+    ("Navin", "IT", 30000),
+    ("Amit", "HR", 25000),
+    ("Ravi", "IT", 35000),
+    ("Rahul", "Finance", 28000),
+    ("Rita", "IT", 32000),
+]
+
+df = spark.createDataFrame(data, ["name", "dept", "salary"])
+```
+
+---
+
+## 1️⃣ `groupBy()` on Single Column
+
+Example → Total salary per department
+
+```python
+df.groupBy("dept").sum("salary").show()
+```
+
+---
+
+### ⭐ Multiple aggregations
+
+👉 `agg()` allows multiple functions in the same group
+
+```python
+from pyspark.sql.functions import sum, avg
+
+df.groupBy("dept").agg(
+    sum("salary").alias("total_salary"),
+    avg("salary").alias("avg_salary")
+).show()
+```
+
+---
+
+## 2️⃣ `groupBy()` on Multiple Columns
+
+Example → Group by department + name
+
+```python
+df.groupBy("dept", "name").agg(
+    sum("salary").alias("total_salary")
+).show()
+```
+
+📌 Useful in multi-key reporting like
+Region + Product → Sales, etc.
+
+---
+
+## 3️⃣ Aggregation Functions Used with groupBy()
+
+| Function         | Description                       |
+| ---------------- | --------------------------------- |
+| `sum()`          | Total                             |
+| `avg()`          | Average                           |
+| `count()`        | Count rows                        |
+| `min()`          | Minimum value                     |
+| `max()`          | Maximum value                     |
+| `collect_list()` | List of values (allow duplicates) |
+| `collect_set()`  | Unique list of values             |
+
+Example:
+
+```python
+from pyspark.sql.functions import min, max, count
+
+df.groupBy("dept").agg(
+    count("*").alias("emp_count"),
+    min("salary").alias("min_salary"),
+    max("salary").alias("max_salary"),
+).show()
+```
+
+---
+
+## 4️⃣ Aggregations on entire DataFrame (No groupBy)
+
+```python
+df.agg(sum("salary").alias("company_total")).show()
+```
+
+---
+
+## 5️⃣ Using SQL expressions (selectExpr)
+
+```python
+df.groupBy("dept") \
+  .agg(expr("sum(salary) as total"), expr("avg(salary) as avg")) \
+  .show()
+```
+
+---
+
+## 🔥 Real Use Case Example
+
+Find highest paid person per department:
+
+```python
+from pyspark.sql.functions import col
+
+df.groupBy("dept").agg(
+    max("salary").alias("max_sal")
+).orderBy(col("max_sal").desc()).show()
+```
+
+---
+
+## ⚡ Performance Notes (Interview)
+
+| Concept                           | Explanation                     |
+| --------------------------------- | ------------------------------- |
+| Wide transformation               | Yes — Shuffle involved          |
+| Better alternative to groupBy+agg | `groupByKey()` ⛔ Avoid — slower |
+| Catalyst Optimizer                | Optimizes aggregation queries   |
+| Use repartition()                 | When skew in group key values   |
+
+⚠️ `groupByKey()` sends all values of a key across network → **More shuffle, memory usage → use only when needed**
+
+✔ Prefer `reduceByKey()` for RDD
+✔ Prefer `groupBy().agg()` for DataFrames
+
+---
+
+## 🎯 Quick Cheatsheet
+
+| Operation             | Example                                                |
+| --------------------- | ------------------------------------------------------ |
+| Single key group      | `df.groupBy("dept").sum("salary")`                     |
+| Multiple keys group   | `df.groupBy("dept", "name").count()`                   |
+| Multiple aggregations | `df.groupBy("dept").agg(sum("salary"), avg("salary"))` |
+| Aggregate whole DF    | `df.agg(count("*"))`                                   |
+
+---
+
+Perfect Navin! Here is a complete and clean explanation of **All Join Types in PySpark** with examples and interview points 👇
+
+---
+
+# 🔷 Joins in PySpark DataFrames
+
+`join()` is used to combine two DataFrames using a **key column**.
+
+### Syntax:
+
+```python
+df1.join(df2, on="columnName", how="joinType")
+```
+
+Example DataFrames:
+
+```python
+emp = [
+    (1, "Navin", 10),
+    (2, "Ravi", 20),
+    (3, "Amit", 10),
+    (4, "Rahul", 30)
+]
+df_emp = spark.createDataFrame(emp, ["emp_id", "name", "dept_id"])
+
+dept = [
+    (10, "IT"),
+    (20, "HR"),
+    (40, "Finance")
+]
+df_dept = spark.createDataFrame(dept, ["dept_id", "dept_name"])
+```
+
+---
+
+## 1️⃣ INNER JOIN (Default Join)
+
+➡ Returns only matching rows from both DataFrames
+
+```python
+df_emp.join(df_dept, "dept_id", "inner").show()
+```
+
+📌 **Common data only**
+
+---
+
+## 2️⃣ FULL OUTER JOIN / OUTER JOIN
+
+➡ Returns all rows from both sides
+➡ Missing values → NULLs
+
+```python
+df_emp.join(df_dept, "dept_id", "fullouter").show()
+# OR
+df_emp.join(df_dept, "dept_id", "outer").show()
+```
+
+📌 Covers matching + non-matching from both
+
+---
+
+## 3️⃣ LEFT JOIN / LEFT OUTER JOIN
+
+➡ All rows from left DataFrame + matching from right
+➡ Unmatched right rows → NULL
+
+```python
+df_emp.join(df_dept, "dept_id", "left").show()
+```
+
+📌 Keep all employees, even without department
+
+---
+
+## 4️⃣ RIGHT JOIN / RIGHT OUTER JOIN
+
+➡ All rows from right + matching from left
+➡ Unmatched left rows → NULL
+
+```python
+df_emp.join(df_dept, "dept_id", "right").show()
+```
+
+📌 Keep all departments, even if no employees
+
+---
+
+## 5️⃣ LEFT SEMI JOIN
+
+➡ Returns **only left DataFrame rows** where match exists
+➡ No columns from right side
+
+```python
+df_emp.join(df_dept, "dept_id", "left_semi").show()
+```
+
+📌 Equivalent to SQL:
+
+```sql
+SELECT emp.* FROM emp 
+WHERE emp.dept_id IN (SELECT dept_id FROM dept)
+```
+
+📌 Useful for filtering efficiently (No duplicate issues)
+
+---
+
+## 6️⃣ LEFT ANTI JOIN
+
+➡ Returns rows from left **where no match** exists in right
+➡ Anti = Opposite of semi
+
+```python
+df_emp.join(df_dept, "dept_id", "left_anti").show()
+```
+
+📌 Find employees **without** valid department
+
+---
+
+## 7️⃣ CROSS JOIN (Cartesian Product)
+
+➡ All combinations of both DF rows
+➡ **Very expensive** → Creates huge dataset
+
+```python
+df_emp.crossJoin(df_dept).show()
+```
+
+⚠️ Avoid unless required (Sales × Date dimension joins etc.)
+
+---
+
+## 8️⃣ SELF JOIN
+
+➡ Join a DataFrame with itself
+➡ Used for tree structures (employees & managers)
+
+Example: Employees with same dept_id
+
+```python
+df_emp.alias("e1").join(
+    df_emp.alias("e2"),
+    col("e1.dept_id") == col("e2.dept_id")
+).show()
+```
+
+📌 Must use alias for self-join to avoid column conflicts
+
+---
+
+# 🧠 Interview Points
+
+| Join Type  | Purpose                           |
+| ---------- | --------------------------------- |
+| inner      | Only matching data                |
+| left       | All left + matching right         |
+| right      | All right + matching left         |
+| full outer | All records                       |
+| left semi  | Filter left where match exists    |
+| left anti  | Filter left where no match exists |
+| cross      | Cartesian product                 |
+| self       | Join with self                    |
+
+---
+
+## ⚡ Performance Best Practices
+
+✔ Always specify join column using `on`
+✔ Avoid `crossJoin` without `spark.sql.crossJoin.enabled = true`
+✔ Broadcast join for small tables:
+
+```python
+from pyspark.sql.functions import broadcast
+
+df_emp.join(broadcast(df_dept), "dept_id").show()
+```
+
+➡ Prevents shuffle → huge speed improvement
+
+---
+
+## 📝 Null Behavior (common interview topic)
+
+| Join  | Returns non-matching NULLs |
+| ----- | -------------------------- |
+| Inner | ❌                          |
+| Left  | Right side NULL            |
+| Right | Left side NULL             |
+| Full  | Both sides NULL            |
+
+---
+
+🔥 Summary Diagram (Easy to remember)
+
+```
+Inner → Only matched
+Left → All Left + matched Right
+Right → All Right + matched Left
+Full → All rows both sides
+Semi → Only Left matched rows (no right columns)
+Anti → Left rows with no match
+Cross → All combinations (Left × Right)
+Self → Join same dataframe with alias
+```
+
+---
+
+Would you like the next topic?
+
+Options:
+1️⃣ **Handling Missing Data** → dropna(), fillna(), replace
+2️⃣ **Window Functions** → rank(), row_number(), lag(), lead
+3️⃣ **Union / Intersect / Except**
+4️⃣ **Joins with multiple keys + duplicate handling**
 
 Which one should we do next?
+
+
 
 
 

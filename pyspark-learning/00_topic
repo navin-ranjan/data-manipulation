@@ -35,6 +35,10 @@
 - where, filter
 - withcolumn, withColumnRenamed
 - case expression
+- sort / orderBy, asc, desc, asc_nulls_first, desc_nulls_last
+- groupBy on single and multiple columns, aggregation 
+- join -> Inner, Outer/Fullouter, left, right, left semi, left anti, cross, self
+
 
 
 
