@@ -855,15 +855,532 @@ When all values must be collected per key.
 
 ---
 
-If you want, next I can cover:
+# **📌 PySpark — Creating DataFrames from Various File Formats**
 
-### **Aggregation Transformations**
+---
 
-* aggregateByKey()
-* combineByKey()
-* foldByKey()
+## **1️⃣ CSV**
 
-Just tell me **“Next”**.
+```python
+df = spark.read \
+    .option("header", True) \
+    .option("inferSchema", True) \
+    .csv("data/file.csv")
+```
+
+📌 Use for tabular data
+📌 Options: `header`, `inferSchema`, `sep`
+
+---
+
+## **2️⃣ TXT**
+
+```python
+df = spark.read.text("data/file.txt")
+```
+
+📌 Creates **1 column** named `"value"`
+📌 Good for logs / documents
+
+---
+
+## **3️⃣ RDD**
+
+```python
+rdd = sc.parallelize([(1,"A",20),(2,"B",25)])
+columns = ["id", "name", "age"]
+df = spark.createDataFrame(rdd, columns)
+```
+
+📌 Used when data is unstructured → transform → convert to DataFrame
+
+---
+
+## **4️⃣ JSON**
+
+### Without automatic schema
+
+```python
+df = spark.read.json("data/sample.json")
+```
+
+### With schema inference disabled
+
+```python
+df = spark.read \
+    .option("inferSchema", True) \
+    .json("data/sample.json")
+```
+
+📌 Supports Nested JSON, Complex types
+📌 Common in APIs / streaming
+
+---
+
+## **5️⃣ XML**
+
+📌 Requires dependency:
+
+```python
+# Maven/Gradle package:
+com.databricks:spark-xml_2.12:0.13.0+
+```
+
+```python
+df = spark.read \
+    .format("xml") \
+    .option("rowTag", "book") \
+    .load("data/books.xml")
+```
+
+* `rowTag`: root repeating element
+
+---
+
+## **6️⃣ Parquet**
+
+```python
+df = spark.read.parquet("data/file.parquet")
+```
+
+📌 **Best performance**
+✔ Columnar
+✔ Compressed
+✔ Schema stored within file
+✔ Used heavily in Data Lakes
+
+---
+
+## **7️⃣ ORC**
+
+```python
+df = spark.read.orc("data/file.orc")
+```
+
+📌 Columnar + optimized for **Hive ecosystem**
+📌 Good compression + predicate pushdown
+
+---
+
+## **8️⃣ Avro**
+
+📌 Requires extension:
+
+```python
+# For Spark 3.0+
+spark.read.format("avro").load("data/file.avro")
+```
+
+📌 Binary row-based format
+✔ Schema evolution & versioning
+✔ Kafka integration common
+
+---
+
+## **9️⃣ Sequence File**
+
+```python
+df = spark.read \
+    .format("sequencefile") \
+    .load("data/seqfile")
+```
+
+📌 Hadoop native format
+📌 Used in older MapReduce systems
+
+---
+
+## **🔟 TSV (Tab Separated Values)**
+
+```python
+df = spark.read \
+    .option("sep", "\t") \
+    .option("header", True) \
+    .csv("data/file.tsv")
+```
+
+📌 Same as CSV but with `tab` delimiter
+
+---
+
+## **1️⃣1️⃣ Pipe Separated (| delimiter)**
+
+```python
+df = spark.read \
+    .option("header", True) \
+    .option("sep", "|") \
+    .csv("data/file.psv")
+```
+
+📌 Used in telecom, finance domain
+
+---
+
+# **📌 Summary Table**
+
+| Format   | Method                    | Notes                            |                |
+| -------- | ------------------------- | -------------------------------- | -------------- |
+| CSV      | `.csv()`                  | Use header & inferSchema         |                |
+| TXT      | `.text()`                 | 1 column output                  |                |
+| RDD      | `createDataFrame()`       | Use schema for production        |                |
+| JSON     | `.json()`                 | Handles nested data              |                |
+| XML      | `.format("xml").load()`   | Install spark-xml package        |                |
+| Parquet  | `.parquet()`              | **Fastest**, default in big data |                |
+| ORC      | `.orc()`                  | Best for Hive                    |                |
+| Avro     | `.format("avro").load()`  | Best with Kafka                  |                |
+| Sequence | `.format("sequencefile")` | Legacy Hadoop format             |                |
+| TSV      | `.csv(sep="\t")`          | Header recommended               |                |
+| Pipe/PSV | `.csv(sep="               | ")`                              | Telecom common |
+
+---
+
+# **Interview Notes**
+
+| Question                    | Best Answer                                        |
+| --------------------------- | -------------------------------------------------- |
+| Best file format in Spark?  | **Parquet** (columnar + compression + metadata)    |
+| Why not always inferSchema? | Adds overhead → specify schema in production       |
+| JSON vs Parquet             | JSON → raw ingestion, Parquet → analytical storage |
+| Spark default file format   | **Parquet**                                        |
+
+---
+
+Got it! Here is the complete explanation **very clearly with examples**:
+
+---
+
+## ✅ 1️⃣ `inferSchema`, `header`, `sep`, `delimiter`
+
+These are options used when reading external data files.
+
+---
+
+### 🔹 `inferSchema = true`
+
+✔ Spark automatically detects column data types
+✖ Slight extra processing → slower for large data
+
+📌 Example:
+
+```python
+df = spark.read.option("inferSchema", "true") \
+    .csv("data.csv")
+```
+
+Without inferSchema → all columns treated as **string**.
+
+---
+
+### 🔹 `header = true`
+
+✔ Tells Spark that the first row contains column names
+✖ Without this → Spark assigns default column names `_c0, _c1 ...`
+
+📌 Example:
+
+```python
+df = spark.read.option("header", "true").csv("data.csv")
+```
+
+---
+
+### 🔹 `sep` (or) `delimiter`
+
+✔ Defines field separator character in text files
+Supported: `, | ; \t` etc.
+
+📌 Example (comma separator):
+
+```python
+df = spark.read.option("header","true") \
+    .option("sep", ",") \
+    .csv("data.csv")
+```
+
+📌 Example (tab separated):
+
+```python
+df = spark.read.option("sep", "\t").csv("data.tsv")
+```
+
+📌 Example (pipe separated):
+
+```python
+df = spark.read.option("sep", "|").csv("data.psv")
+```
+
+💡 **Note**: `sep` = `delimiter` (both same)
+
+---
+
+## ✅ 2️⃣ Schema in Spark DataFrame
+
+Schema = structure of DataFrame
+(Columns, datatypes, nullable properties)
+
+There are **3 ways to define schema:**
+
+---
+
+### ✔ A. Spark **auto-infers** schema
+
+(Using `inferSchema=true`)
+
+```python
+df = spark.read.option("header","true") \
+    .option("inferSchema", "true") \
+    .csv("data.csv")
+
+df.printSchema()
+```
+
+---
+
+### ✔ B. Provide schema **manually** using StructType
+
+📌 Example:
+
+```python
+from pyspark.sql.types import StructType, StructField, StringType, IntegerType
+
+schema = StructType([
+    StructField("id", IntegerType(), True),
+    StructField("name", StringType(), True),
+    StructField("age", IntegerType(), True)
+])
+
+df = spark.read.option("header", "true") \
+    .schema(schema) \
+    .csv("data.csv")
+```
+
+👍 Faster & recommended for large datasets
+❌ You must know column types in advance
+
+---
+
+### ✔ C. Schema from **RDD transformation**
+
+Example:
+
+```python
+from pyspark.sql import Row
+
+rdd = spark.sparkContext.parallelize([
+    Row(id=1, name="Navin", age=25),
+    Row(id=2, name="Ravi", age=30)
+])
+
+df = spark.createDataFrame(rdd)
+df.printSchema()
+```
+
+---
+
+### 🔍 View schema
+
+```python
+df.printSchema()
+```
+
+---
+
+## 🎯 Quick Summary Table
+
+| Option          | Meaning                         | Use Case                        |
+| --------------- | ------------------------------- | ------------------------------- |
+| inferSchema     | Auto detect data type           | CSV, TXT                        |
+| header          | First row contains column names | CSV, TSV                        |
+| sep / delimiter | Custom separator used           | TSV, pipe separated             |
+| schema          | Manually define structure       | Performance + strict validation |
+
+---
+## ⚡ DataFrame Actions in Spark
+
+👉 Actions **start execution** of a DataFrame job.
+👉 They **return** results (output or write data) instead of creating a new DataFrame.
+
+---
+
+### 🔥 Common Actions
+
+| Action                   | Description                            | Return Type      |
+| ------------------------ | -------------------------------------- | ---------------- |
+| `show()`                 | Display rows                           | `None`           |
+| `collect()`              | Returns all rows to driver             | `list`           |
+| `take(n)`                | Returns first `n` rows                 | `list`           |
+| `head(n)`                | Returns first row / first n rows       | Row / list       |
+| `count()`                | Number of rows                         | `int`            |
+| `first()`                | Returns first row                      | Row              |
+| `distinct().count()`     | Count unique rows                      | `int`            |
+| `reduce(func)`           | Reduce rows using function             | Value            |
+| `foreach(func)`          | Run function on each row (worker side) | `None`           |
+| `foreachPartition(func)` | Run function per partition             | `None`           |
+| `write` (save)           | Write DataFrame to storage             | Saves to DB/File |
+
+---
+
+## 🔹 Examples
+
+We will use a simple DataFrame:
+
+```python
+data = [
+    (1, "Navin", 25),
+    (2, "Ravi", 30),
+    (3, "Amit", 28)
+]
+
+df = spark.createDataFrame(data, ["id", "name", "age"])
+```
+
+---
+
+### 1️⃣ `show()`
+
+Displays top 20 rows → used for debugging
+
+```python
+df.show()
+```
+
+---
+
+### 2️⃣ `collect()`
+
+Brings **entire data** to driver memory
+⚠️ Dangerous for large datasets → OOM
+
+```python
+rows = df.collect()
+print(rows)
+```
+
+---
+
+### 3️⃣ `take(n)`
+
+Fetch limited rows
+
+```python
+df.take(2)
+```
+
+---
+
+### 4️⃣ `count()`
+
+Returns number of rows
+
+```python
+df.count()
+```
+
+---
+
+### 5️⃣ `first()` and `head()`
+
+```python
+df.first()     # first row
+df.head(2)     # first 2 rows
+```
+
+---
+
+### 6️⃣ `distinct().count()`
+
+```python
+unique_count = df.distinct().count()
+```
+
+---
+
+### 7️⃣ `reduce(func)`
+
+Mostly used on numeric columns
+
+```python
+from pyspark.sql.functions import col
+from functools import reduce
+
+df.select("age").rdd.reduce(lambda a, b: a + b)
+```
+
+---
+
+### 8️⃣ `foreach()`
+
+Executes function row-wise on workers
+
+```python
+def print_row(row):
+    print(row)
+
+df.foreach(print_row)
+```
+
+⚠️ Output prints in **worker logs**, not driver console
+
+---
+
+### 9️⃣ Save result → `write` Action
+
+```python
+df.write.mode("overwrite").csv("output_path")
+```
+
+Other formats: JSON, Parquet, ORC, Avro
+
+---
+
+## 🎯 Transformation vs Action (Interview Point)
+
+| Transformation           | Action                         |
+| ------------------------ | ------------------------------ |
+| Lazy                     | Trigger execution              |
+| Returns new DataFrame    | Returns result / writes output |
+| Examples: select, filter | Examples: show, collect, count |
+
+**Spark only executes when action is called** (Lazy Evaluation).
+
+---
+
+## ⭐ Interview Questions
+
+1️⃣ What is lazy evaluation?
+👉 Execution happens only when an Action triggers it.
+
+2️⃣ Why is `collect()` dangerous?
+👉 It loads all data to driver → memory crash.
+
+3️⃣ Difference between `show()` and `take()`?
+
+| show                  | take                 |
+| --------------------- | -------------------- |
+| Prints tabular output | Returns list of rows |
+| Debugging             | Programmatic use     |
+
+4️⃣ Difference between `foreach()` and `foreachPartition()`?
+
+| foreach       | foreachPartition   |
+| ------------- | ------------------ |
+| Row by row    | Partition-level    |
+| More overhead | Better performance |
+
+---
+
+### ✔ Quick Summary
+
+| Action Type | Examples                      |
+| ----------- | ----------------------------- |
+| Display     | show(), take(), head()        |
+| Aggregation | count(), reduce(), first()    |
+| Output      | collect(), write(), foreach() |
+
+---
+
+
+
 
 
 
