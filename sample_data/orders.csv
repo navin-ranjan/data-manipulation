@@ -1,0 +1,6 @@
+order_id,customer_id,amount,status,created_at
+1,1,120.50,completed,2025-01-02
+2,2,45.00,pending,2025-01-03
+3,1,200.00,completed,2025-01-01
+4,3,15.75,cancelled,2025-01-03
+5,4,350.00,completed,2024-12-31
