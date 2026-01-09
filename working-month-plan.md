@@ -1,7 +1,7 @@
 
 # ✅ FINAL 30-DAY DETAILED DAILY PLAN
 
-**Every day = SQL + Python + Databricks + ADF + ADLS + Airflow + Synapse + Practical**
+**Every day = SQL + Python + Databricks + ADF + ADLS + Airflow + Synapse + Practical + Data Structure and algorithm**
 
 Perfect.
 Below is **DAY 1 – SCOPE ONLY**
@@ -56,8 +56,15 @@ Below is **DAY 1 – SCOPE ONLY**
 * OLTP: transactional systems, row-based, small queries
 * OLAP: analytics systems, columnar, aggregated queries
 
-## ✅ **DAY 2 – SCOPE**
+---
 
+### 6. DSA 
+* What is DSA for Data Engineering
+* Time & Space Complexity (Big-O basics)
+* Array traversal / Operations
+* Array problems: Max / Min, Sum, Reverse array
+
+## ✅ **DAY 2 – SCOPE**
 
 
 ### 1. SQL – SELECT & WHERE
@@ -93,6 +100,11 @@ Below is **DAY 1 – SCOPE ONLY**
 * Folder-based storage concept
 * Container vs Folder
 * No security or performance yet
+
+---
+### 5. DSA
+* String Opeartions
+* Problem: Character frequency,Palindrome check, Reverse String 
 
 ---
 
@@ -219,6 +231,11 @@ Below is **DAY 1 – SCOPE ONLY**
 * Benefits: data quality, lineage, transformation
 
 --- 
+### 7. DSA
+* Two Pointer Technique
+* Problems: Remove duplicates, Pair with given sum
+
+---
 
 ## ✅ **DAY 5 – SCOPE**
 
@@ -262,6 +279,13 @@ Below is **DAY 1 – SCOPE ONLY**
 * DAG structure (tasks & dependencies)
 * schedule_interval overview
 * No retries or XCom yet
+
+---
+
+### 6. DSA
+* Sliding Window
+* Problems: Max sum subarray (fixed window), Count occurrences
+
 
 ---
 
@@ -310,6 +334,12 @@ Below is **DAY 1 – SCOPE ONLY**
 * No retries, sensors, or XCom yet
 
 ---
+### 6. DSA
+* Real Data Engineering use: Batch processing logic using arrays
+* Practice 5 mixed problems
+* Explain solutions in words (important for interviews)
+
+---
 
 ## ✅ **DAY 7 – SCOPE**
 
@@ -354,6 +384,12 @@ Below is **DAY 1 – SCOPE ONLY**
 * retries and retry_delay concept
 * How it works when task fails
 * No advanced failure handling or XCom yet
+
+
+---
+### 6. DSA
+* HashMap / Dictionary basics
+* Set basics
 
 ---
 
@@ -402,6 +438,9 @@ Below is **DAY 1 – SCOPE ONLY**
 * No advanced pipeline triggering yet
 
 ---
+### 6. DSA
+* Hashing problems: Frequency count, First non-repeating element, Deduplication
+---
 
 
 ## ✅ **DAY 9 – SCOPE**
@@ -447,6 +486,10 @@ Below is **DAY 1 – SCOPE ONLY**
 * Passing small data between tasks (concept only)
 * No advanced serialization or custom XCom backends
 
+---
+### 6. DSA
+* Group By logic (very important for DE)
+* Problems: Group anagrams, Count per key
 ---
 
 ## ✅ **DAY 10 – SCOPE**
@@ -495,6 +538,12 @@ Below is **DAY 1 – SCOPE ONLY**
 
 ---
 
+### 6. DSA
+* Sorting: Built-in sort
+* When sorting is needed
+
+---
+
 ## ✅ **DAY 11 – SCOPE**
 
 ### 1. SQL – Views
@@ -539,6 +588,10 @@ Below is **DAY 1 – SCOPE ONLY**
 * No advanced authentication methods yet
 
 ---
+### 6. DSA 
+* Searching: Linear search, Binary search (basic)
+---
+
 
 ## ✅ **DAY 12 – SCOPE**
 
@@ -584,6 +637,11 @@ Below is **DAY 1 – SCOPE ONLY**
 * Basic usage (wait for file, table, or event)
 * Concept only
 * No custom sensors or timeout handling yet
+
+---
+### 6. DSA
+
+* Combine: Sort + Binary Search problems
 
 ---
 
@@ -633,6 +691,10 @@ Below is **DAY 1 – SCOPE ONLY**
 * No complex queries yet
 
 ---
+### 6. DSA
+* Stack: Push / Pop
+* Real use case
+* Stack problems: Valid parentheses, Reverse using stack
 
 ## ✅ **DAY 14 – SCOPE**
 
@@ -677,6 +739,11 @@ Below is **DAY 1 – SCOPE ONLY**
 * Types: Azure IR, Self-hosted IR
 * Concept only
 * No advanced setup or networking
+---
+### 6. DSA
+* Queue & Deque
+* Use cases in streaming data
+* Queue problems: Sliding window using deque
 
 ---
 
@@ -720,6 +787,10 @@ Below is **DAY 1 – SCOPE ONLY**
 * What is backfill
 * When to use backfill
 * Concept only, no commands or advanced configs
+
+---
+### 6. DSA
+* Recursion basics: Base case, Recursive thinking
 
 
 ---
@@ -765,7 +836,9 @@ Below is **DAY 1 – SCOPE ONLY**
 * Naming conventions
 * Task dependency clarity
 * No advanced retry, XCom, or sensors yet
-
+---
+### 6. DSA
+* Recursion problems: Factorial, Permutations (logic only)
 ---
 
 ## ✅ **DAY 17 – SCOPE**
@@ -811,6 +884,13 @@ Below is **DAY 1 – SCOPE ONLY**
 * No complex workflow or integration details
 
 
+--- 
+### 6. DSA (Conceptual)
+* Tree basics:
+* Binary tree, Terminology
+* Tree traversal: DFS (inorder, preorder), BFS (level order)
+
+
 ---
 
 ## ✅ **DAY 18 – SCOPE**
@@ -850,6 +930,12 @@ Below is **DAY 1 – SCOPE ONLY**
 
 
 ---
+### 5. DSA (Conceptual)
+* Heap / Priority Queue
+* Problems: Top-K elements
+
+
+---
 
 ## ✅ **DAY 19 – SCOPE**
 
@@ -884,6 +970,12 @@ Below is **DAY 1 – SCOPE ONLY**
 * Parameterization, pipelines, storage types (concept only)
 * No coding, only conceptual discussion
 
+
+---
+### 5. DSA (Conceptual)
+
+* Graphs (concept only): BFS / DFS idea
+* DAG concept (Airflow relevance)
 
 ---
 
