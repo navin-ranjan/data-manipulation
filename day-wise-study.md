@@ -2461,46 +2461,301 @@ HAVING COUNT(*) > 5;
 
 # 2. Python – Lists & Tuples
 
-## List
 
-A **list** is:
+# List
 
-* Ordered
-* Mutable (can be changed)
+## 1️⃣ What is a List?
 
-### Example
+A **list** is a **mutable**, **ordered** collection of elements in Python.
 
 ```python
-nums = [1, 2, 3]
+my_list = [10, 20, 30]
 ```
 
-### IN Line ✅
+### Key points
 
-> “List is a mutable collection of ordered elements.”
-
----
-
-## List Operations (Important)
-
-### append()
+* Ordered (index based)
+* Allows **duplicate** values
+* Can store **different data types**
+* Mutable (can change after creation)
 
 ```python
-nums.append(4)
-```
-
-### insert()
-
-```python
-nums.insert(1, 10)
-```
-
-### remove()
-
-```python
-nums.remove(2)
+lst = [1, "apple", 3.5, True]
 ```
 
 ---
+
+## 2️⃣ Why use List?
+
+Lists are used when:
+
+* You need to store **multiple values**
+* Data size can **grow or shrink**
+* Frequent **insert, delete, update**
+* Need indexing & iteration
+
+### Real use cases
+
+* Store records from database
+* Store batch data in Data Engineering
+* Temporary data processing in Python/Spark
+
+---
+
+## 3️⃣ List Indexing
+
+```python
+lst = [10, 20, 30, 40]
+print(lst[0])   # 10
+print(lst[-1])  # 40
+```
+
+---
+
+## 4️⃣ List Slicing
+
+```python
+lst = [1, 2, 3, 4, 5]
+print(lst[1:4])
+```
+
+Output:
+
+```
+[2, 3, 4]
+```
+
+---
+
+## 5️⃣ List Operations (Most Important)
+
+---
+
+### ➕ Add Elements
+
+#### `append()` – add at end
+
+```python
+lst = [1, 2]
+lst.append(3)
+```
+
+#### `insert()` – add at index
+
+```python
+lst.insert(1, 10)
+```
+
+#### `extend()` – add multiple values
+
+```python
+lst.extend([4, 5, 6])
+```
+
+---
+
+### ➖ Remove Elements
+
+#### `remove()` – by value
+
+```python
+lst.remove(10)
+```
+
+#### `pop()` – by index
+
+```python
+lst.pop()
+lst.pop(1)
+```
+
+#### `clear()` – remove all
+
+```python
+lst.clear()
+```
+
+---
+
+### 🔍 Search Operations
+
+#### `index()`
+
+```python
+lst.index(3)
+```
+
+#### `count()`
+
+```python
+lst.count(2)
+```
+
+---
+
+### 🔄 Update Elements
+
+```python
+lst[0] = 100
+```
+
+---
+
+### 🔢 Sorting & Reversing
+
+#### `sort()`
+
+```python
+lst.sort()
+```
+
+#### `sort(reverse=True)`
+
+```python
+lst.sort(reverse=True)
+```
+
+#### `reverse()`
+
+```python
+lst.reverse()
+```
+
+---
+
+### 📏 Length
+
+```python
+len(lst)
+```
+
+---
+
+## 6️⃣ List Looping
+
+### Using `for` loop
+
+```python
+for x in lst:
+    print(x)
+```
+
+### Using index
+
+```python
+for i in range(len(lst)):
+    print(lst[i])
+```
+
+---
+
+## 7️⃣ List Comprehension (Important)
+
+Short way to create list
+
+```python
+squares = [x*x for x in range(5)]
+```
+
+Output:
+
+```
+[0, 1, 4, 9, 16]
+```
+
+With condition:
+
+```python
+even = [x for x in range(10) if x % 2 == 0]
+```
+
+---
+
+## 8️⃣ Nested List
+
+```python
+matrix = [[1,2], [3,4], [5,6]]
+print(matrix[1][0])
+```
+
+Output:
+
+```
+3
+```
+
+---
+
+## 9️⃣ Copy List
+
+❌ Wrong (reference copy)
+
+```python
+a = [1,2]
+b = a
+```
+
+✅ Correct
+
+```python
+b = a.copy()
+```
+
+or
+
+```python
+b = a[:]
+```
+
+---
+
+## 🔟 List vs Tuple (IN)
+
+| Feature | List   | Tuple  |
+| ------- | ------ | ------ |
+| Mutable | Yes    | No     |
+| Speed   | Slower | Faster |
+| Syntax  | `[ ]`  | `( )`  |
+
+---
+
+## 1️⃣1️⃣ Time Complexity (Basic)
+
+| Operation       | Time |
+| --------------- | ---- |
+| Access by index | O(1) |
+| Append          | O(1) |
+| Insert          | O(n) |
+| Remove          | O(n) |
+| Search          | O(n) |
+
+---
+
+## 1️⃣2️⃣ When NOT to use List?
+
+* Need **fast search** → use `set`
+* Need **key-value** → use `dict`
+* Data should not change → use `tuple`
+
+---
+
+## ✅ Final Summary
+
+* List = ordered, mutable collection
+* Used for dynamic data storage
+* Supports insert, delete, update, search
+* Very important for **Python + DSA + Data Engineering**
+
+---
+
+If you want next:
+
+* **List IN questions**
+* **DSA problems on list**
+* **List vs Array vs Set**
+* **Python list in real Data Engineering examples**
+
+Just tell me 👍
 
 ## Tuple
 
@@ -3381,6 +3636,676 @@ print(3 in s)  # True
 > **“In SQL, subqueries are queries inside other queries used in SELECT or WHERE. In Python, if/else statements control conditional logic. In Spark, partitions are units of distributed data that affect performance. In ADLS Gen2, containers are top-level storage and folders organize data hierarchically. Airflow retries failed tasks using retries and retry_delay. Dictionaries store key-value pairs and sets store unique elements.”**
 
 ---
+
+## ✅ **DAY 8 – SCOPE**
+
+## 1. SQL – ROW_NUMBER() (Window Function)
+
+### What is ROW_NUMBER()?
+
+* Assigns a **unique sequential number** to rows
+* Numbering restarts based on **PARTITION BY**
+* Order is defined using **ORDER BY**
+
+### Basic Syntax
+
+```sql
+SELECT 
+    ROW_NUMBER() OVER (ORDER BY salary DESC) AS rn,
+    name, salary
+FROM employees;
+```
+
+### PARTITION BY (Concept)
+
+```sql
+SELECT 
+    ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS rn,
+    name, department, salary
+FROM employees;
+```
+
+### Key Points
+
+* `PARTITION BY` → divides data into groups
+* `ORDER BY` → defines row numbering order
+* No aggregation happens
+
+### IN Line ✅
+
+> “ROW_NUMBER assigns a unique sequence number to rows based on order and partition.”
+
+---
+
+## 2. Python – File Read / Write Basics
+
+### Reading a File
+
+```python
+file = open("data.txt", "r")
+content = file.read()
+file.close()
+```
+
+### readlines()
+
+```python
+file = open("data.txt", "r")
+lines = file.readlines()
+file.close()
+```
+
+---
+
+### Writing to a File
+
+```python
+file = open("output.txt", "w")
+file.write("Hello Data Engineering")
+file.close()
+```
+
+---
+
+### Using `with` Context Manager (Best Practice)
+
+```python
+with open("data.txt", "r") as file:
+    content = file.read()
+```
+
+### IN Line ✅
+
+> “Using `with` ensures files are automatically closed.”
+
+---
+
+## 3. Apache Spark – Read / Write CSV & Parquet
+
+### Reading CSV
+
+```python
+df = spark.read.csv("path/data.csv", header=True, inferSchema=True)
+```
+
+### Reading Parquet
+
+```python
+df = spark.read.parquet("path/data.parquet")
+```
+
+---
+
+### Writing CSV
+
+```python
+df.write.csv("path/output_csv", header=True)
+```
+
+### Writing Parquet
+
+```python
+df.write.parquet("path/output_parquet")
+```
+
+---
+
+### Schema Inference Concept
+
+* Spark **automatically detects column data types**
+* Enabled using `inferSchema=True`
+
+### IN Line ✅
+
+> “Spark can infer schema automatically while reading CSV and Parquet files.”
+
+---
+
+## 4. Databricks – Jobs
+
+### What is a Databricks Job?
+
+* Used to **run notebooks automatically**
+* Can be **scheduled or manually triggered**
+
+### Key Concepts
+
+* Jobs run on **job clusters**
+* Common for **production pipelines**
+
+### IN Line ✅
+
+> “Databricks jobs are used to schedule and automate notebook execution.”
+
+---
+
+## 5. Azure Data Factory – Trigger Types
+
+### Manual Trigger
+
+* Pipeline is started **manually**
+* Used for testing or ad-hoc runs
+
+---
+
+### Schedule Trigger
+
+* Runs pipelines on a **fixed schedule**
+* Daily / Weekly / Monthly
+
+---
+
+### Event-based Trigger (Concept)
+
+* Pipeline runs when **data arrives**
+* Example: file upload to ADLS
+
+### IN Line ✅
+
+> “ADF supports manual, scheduled, and event-based triggers to run pipelines.”
+
+---
+
+## 🔑 Final IN Summary (Perfect Answer)
+
+> **“ROW_NUMBER is a window function that assigns sequential numbers based on partition and order. Python uses basic file operations with open and with for safe reading and writing. Spark supports reading and writing CSV and Parquet with schema inference. Databricks jobs automate notebook execution. Azure Data Factory pipelines can be triggered manually, by schedule, or by events.”**
+
+---
+## ✅ **DAY 9 – SCOPE**
+
+Here are **simple, IN-oriented notes** for each topic. These are written so you can **answer clearly in 1–2 sentences during INs** 👇
+
+---
+
+## 1. SQL – Index Basics
+
+### What is an Index?
+
+* An **index** is a data structure that helps the database **find rows faster**
+* Similar to an **index in a book**
+
+### Why Indexes are Used?
+
+* Improves **query performance**
+* Reduces full table scans
+* Mainly helps **SELECT, WHERE, JOIN** conditions
+
+### Important Point
+
+* Index improves **read performance**
+* Slightly slows down **INSERT / UPDATE / DELETE**
+
+### IN Line ✅
+
+> “An index improves query performance by allowing faster data lookup, similar to a book index.”
+
+---
+
+## 2. Python – Modules & Import
+
+### What is a Module?
+
+* A **module** is a Python file containing functions, variables, or classes
+* Example: `math`, `sys`, `os`
+
+### Using import
+
+```python
+import math
+print(math.sqrt(16))
+```
+
+### Using from module import
+
+```python
+from math import sqrt
+print(sqrt(16))
+```
+
+### IN Line ✅
+
+> “Modules help reuse code and provide built-in functionality in Python.”
+
+---
+
+## 3. Apache Spark – Cache / Persist Concept
+
+### What is Caching?
+
+* Storing DataFrame/RDD in **memory**
+* Avoids recomputation in repeated use
+
+### cache() vs persist()
+
+| cache()               | persist()                        |
+| --------------------- | -------------------------------- |
+| Stores data in memory | Can store data in memory or disk |
+| Default behavior      | More control                     |
+
+### When to Use Caching?
+
+* When DataFrame is **used multiple times**
+* After expensive operations (read, join, filter)
+
+### IN Line ✅
+
+> “Caching improves performance by storing frequently used data in memory.”
+
+---
+
+## 4. ADLS Gen2 – Folder Strategy
+
+### Best Practices for Folder Structure
+
+* Organize data by **domain / source**
+* Separate **raw, processed, curated** data
+* Use **date-based folders**
+
+### Example Structure
+
+```
+/raw/sales/2026/01/15/
+/processed/sales/2026/01/15/
+/curated/sales/2026/01/15/
+```
+
+### Key Concept
+
+* Folder structure supports **partition pruning and performance**
+
+### IN Line ✅
+
+> “A good folder strategy organizes data by layer and date for easy processing and performance.”
+
+---
+
+## 5. Apache Airflow – XCom Concept
+
+### What is XCom?
+
+* XCom stands for **Cross Communication**
+* Used to pass **small pieces of data** between tasks
+
+### Key Points
+
+* Used for metadata (IDs, file names)
+* Not meant for large datasets
+
+### IN Line ✅
+
+> “XCom allows tasks in a DAG to share small data like IDs or filenames.”
+
+---
+
+## ⭐ Final IN Summary (Strong Answer)
+
+> **“Indexes improve SQL query performance. Python modules help reuse functionality using import statements. Spark caching stores data in memory for faster reuse. ADLS folder strategies organize data by layers and dates. Airflow XCom enables small data sharing between tasks.”**
+
+---
+## ✅ **DAY 10 – SCOPE**
+
+Here are **easy, IN-ready notes** for each topic. You can **answer confidently in short, clear sentences** 👇
+
+---
+
+## 1. SQL – Constraints
+
+### Primary Key (PK)
+
+* Uniquely identifies each row
+* Cannot be **NULL**
+* Only **one primary key** per table
+
+**IN Line ✅**
+
+> “Primary key uniquely identifies each record and cannot be null.”
+
+---
+
+### Foreign Key (FK)
+
+* Creates a **relationship between tables**
+* References **primary key of another table**
+* Ensures **referential integrity**
+
+**IN Line ✅**
+
+> “Foreign key maintains relationship and data consistency between tables.”
+
+---
+
+### NOT NULL
+
+* Column **cannot contain NULL values**
+
+### UNIQUE
+
+* Ensures **no duplicate values** in a column
+
+**IN Line ✅**
+
+> “NOT NULL prevents null values, UNIQUE prevents duplicates.”
+
+---
+
+## 2. Python – OOP Basics
+
+### Class and Object
+
+* **Class**: blueprint
+* **Object**: instance of a class
+
+### Simple Class Example
+
+```python
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+    def show_salary(self):
+        print(self.salary)
+
+emp = Employee("Navin", 50000)
+emp.show_salary()
+```
+
+### Key Points
+
+* `__init__` initializes object
+* `self` refers to current object
+
+**IN Line ✅**
+
+> “A class is a blueprint, and an object is its instance.”
+
+---
+
+## 3. Apache Spark – Spark SQL Intro
+
+### Running SQL on DataFrames
+
+* Convert DataFrame to **temporary view**
+* Run SQL using Spark engine
+
+### createOrReplaceTempView
+
+```python
+df.createOrReplaceTempView("emp")
+```
+
+### spark.sql()
+
+```python
+spark.sql("SELECT name, salary FROM emp")
+```
+
+### Key Points
+
+* Uses **SQL syntax**
+* Executes in Spark’s distributed engine
+
+**IN Line ✅**
+
+> “Spark SQL allows running SQL queries on DataFrames using temporary views.”
+
+---
+
+## 4. Azure Data Factory – Parameter vs Variable
+
+### Pipeline Parameter
+
+* Used for **dynamic input**
+* Value passed at **pipeline trigger time**
+* Read-only inside pipeline
+
+### Variable
+
+* Used to **store temporary values**
+* Can be updated during pipeline run
+
+| Parameter            | Variable          |
+| -------------------- | ----------------- |
+| Input to pipeline    | Temporary storage |
+| Set once             | Can be changed    |
+| Used for reusability | Used for logic    |
+
+**IN Line ✅**
+
+> “Parameters are dynamic inputs, variables store temporary values during pipeline execution.”
+
+---
+
+## 5. Azure Synapse Analytics – Overview
+
+### What is Synapse Analytics?
+
+* Analytics service combining **SQL, Spark, and data integration**
+* Used for **big data and data warehousing**
+
+### Dedicated SQL Pool
+
+* **Provisioned resources**
+* Used for **high-performance data warehouse**
+
+### Serverless SQL Pool
+
+* **Pay-per-query**
+* Query data directly from **ADLS**
+
+**IN Line ✅**
+
+> “Dedicated SQL pool is provisioned; serverless SQL pool queries data on demand from ADLS.”
+
+---
+
+## 6. DSA – Sorting (Built-in Sort)
+
+### Built-in Sorting
+
+```python
+arr = [5, 2, 8, 1]
+arr.sort()          # in-place
+sorted_arr = sorted(arr)  # new list
+```
+
+### When Sorting is Needed
+
+* Finding **top N values**
+* Removing duplicates (with set)
+* Binary search prerequisite
+* Ranking and ordering data
+
+**IN Line ✅**
+
+> “Sorting is used when order matters, like top N, ranking, or searching.”
+
+---
+
+## ⭐ Final IN Summary (Strong Answer)
+
+> **“SQL constraints like primary and foreign keys ensure data integrity. Python OOP uses classes and objects. Spark SQL allows querying DataFrames using SQL. In ADF, parameters are inputs and variables store temporary values. Azure Synapse supports both dedicated and serverless SQL pools. Sorting is needed for ordering, ranking, and efficient searching.”**
+
+---
+
+## ✅ **DAY 11 – SCOPE**
+
+## 1. SQL – Views
+
+### What is a View?
+
+* A **view** is a **virtual table** based on a SQL query
+* Does **not store data** itself (stores query logic)
+
+### Why Views are Used?
+
+* Simplify complex queries
+* Improve readability
+* Provide data abstraction and security
+
+### Creating a Simple View
+
+```sql
+CREATE VIEW emp_view AS
+SELECT emp_id, name, salary
+FROM employees;
+```
+
+---
+
+### Temporary vs Permanent View (Concept)
+
+| Temporary View     | Permanent View         |
+| ------------------ | ---------------------- |
+| Exists for session | Stored in database     |
+| Used for analysis  | Used by multiple users |
+| Auto deleted       | Persists until dropped |
+
+### IN Line ✅
+
+> “A view is a virtual table created from a query; temporary views are session-based while permanent views are stored in the database.”
+
+---
+
+## 2. Python – Logging Basics
+
+### What is Logging?
+
+* Logging is used to **record application events**
+* Helps in **debugging and monitoring**
+
+### Using logging Module
+
+```python
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.info("Process started")
+logging.error("Error occurred")
+```
+
+### Common Log Levels
+
+* INFO → normal flow
+* ERROR → failures
+
+### IN Line ✅
+
+> “Logging records runtime information and errors for debugging and monitoring.”
+
+---
+
+## 3. Apache Spark – Joins in Spark
+
+### Join Types
+
+* **Inner Join** → matching rows from both DataFrames
+* **Left Join** → all rows from left + matching from right
+
+### Basic Join Syntax
+
+```python
+df1.join(df2, df1.id == df2.id, "inner")
+df1.join(df2, df1.id == df2.id, "left")
+```
+
+### Key Matching
+
+* Join happens based on **matching keys**
+* Similar to SQL joins but on DataFrames
+
+### IN Line ✅
+
+> “Spark joins combine DataFrames based on key matching using inner or left joins.”
+
+---
+
+## 4. Azure Synapse Analytics – SQL Pool Types
+
+### Dedicated SQL Pool
+
+* **Provisioned resources**
+* Used for **enterprise data warehouses**
+* High and predictable performance
+
+### Serverless SQL Pool
+
+* **No provisioning**
+* Query data directly from **ADLS**
+* Pay per query
+
+### IN Line ✅
+
+> “Dedicated SQL pools are provisioned for warehouses, serverless pools query ADLS on demand.”
+
+---
+
+## 5. Azure Data Factory – Linked Services
+
+### What is a Linked Service?
+
+* Connection information to **data sources**
+* Similar to **connection strings**
+
+### Purpose
+
+* Connect ADF to:
+
+  * ADLS
+  * SQL Database
+  * Synapse
+  * Databricks
+
+### IN Line ✅
+
+> “Linked services define connections between ADF and external data sources.”
+
+---
+
+## 6. DSA – Searching
+
+### Linear Search
+
+* Checks elements **one by one**
+* Works on **unsorted data**
+
+```python
+for x in arr:
+    if x == target:
+        print("Found")
+```
+
+**Time Complexity:** O(n)
+
+---
+
+### Binary Search
+
+* Works on **sorted data**
+* Divides search space into halves
+
+```python
+import bisect
+index = bisect.bisect_left(arr, target)
+```
+
+**Time Complexity:** O(log n)
+
+---
+
+### IN Line ✅
+
+> “Linear search checks sequentially; binary search is faster but requires sorted data.”
+
+---
+
+## ⭐ Final IN Summary (Perfect Answer)
+
+> **“Views are virtual tables created from queries. Python logging helps track application events. Spark joins combine DataFrames using key matching. Synapse provides dedicated and serverless SQL pools for different use cases. ADF linked services connect pipelines to data sources. Linear search works on unsorted data, while binary search is faster on sorted data.”**
+
+---
+
+
 
 
 
