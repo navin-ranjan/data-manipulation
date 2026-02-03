@@ -29,7 +29,7 @@
 ----------------- Python Fundamentals -----------------------
 
 1. Environment - venv, pip, poetry, requirement.txt
-2. Core Python
+2. Core Python - Interpreted, Script
     Datatype -
     Loops -
     Functions
@@ -50,6 +50,8 @@
 ---------------- SQL + Data Modeling -------------------
 
 1. Core SQL
+    Table/Schema - row, column
+    keys - primary key , unique key, foriegn key
     DDL - CREATE, ALTER, DROP
     DML - INSERT, UPDATE, DELETE 
     SELECT - WHERE, GROUP BY, HAVING, ORDER BY
@@ -70,7 +72,7 @@
     Dimensional Modeling - fact, dimensions
     Star Schema
     Snowflake Schema
-    Slowly Changing Dimensions - Type 0–6
+    Slowly Changing Dimensions - Type 0 – 6
 
 ----------------- Storage + Format -------------------
 
@@ -80,6 +82,12 @@
     compression (snappy, gzip, zstd, tar)
     schema evolution
     partitioning
+
+
+----------------- Data Structure ---------------------
+1. Time & Space Complexity
+2. Arrays
+
 
 ---------------- Big Data Processing -----------------
 
@@ -110,6 +118,57 @@
     retention
     schema registry
 
+----------------- Orchestration + Warehousing ---------------------
+
+1. Airflow 
+    DAGs -
+    operators - 
+    sensors -
+    retries -
+    backfills -
+    SLAs -
+
+2. Data Warehousing
+   column stores
+    ELT
+    materialized views
+    query tuning 
+
+3. Lakehouse
+    Delta Lake
+    ACID on files
+    bronze/silver/gold
+    compaction
+    vacuum
+
+
+------------------- Data Quality + Security ------------------------
+
+1. Data Quality - Great Expectations, validation rules, contracts
+2. Catalog & Lineage - metadata, lineage, PII tagging
+3. Security - IAM, secrets, encryption, key rotation, VPC
+
+-------------------- Data Ops ---------------------
+
+1. CI/CD
+2. Logging
+3. Metric
+4. Alert
+
+------------------- Performance & Cost -------------------
+
+1. partition strategy
+2. caching
+3. profiling
+4. cloud cost control
+
+
+------------------Data Engineering + Azure Cloud -----------------------
+
+1. Role of DE
+2. High Level Data Pipeline
+3. Cloud Computing
+4. Azure data tools - ADF, ADLS gen2, Databricks, Synapse Analytics
 
 
 
