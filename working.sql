@@ -26,6 +26,7 @@ skill
 
 Azure Databricks, Azure Data Factory, Azure Synapse Analytics, ADLS Gen2, Apache Spark, PySpark, Databricks, Hadoop, HDFS, Python,SQL, Apache Airflow, S3, MinIO, Cassandra(NoSQL), MySQL, AzureDevOps(CI/CD),ETL/ELTDataPipeline, Star Schema, Git, Power BI, Kafka
 
+
 leaving reason
 
 The role offered limited learning opportunities, so I’m seeking a position to enhance my skills and work with modern technologies aligned with my long-term goals.
@@ -35,4 +36,11 @@ The role offered limited learning opportunities, so I’m seeking a position to 
 
 
 https://medium.com/@krthiak
+
+
+-------------
+
+-- interested candidate can drop your cv for 7337719808 or chaitrac@adventglobal.com
+-- naga.padmavathi@websynergies.com
+-- padma.hr@ravinsol.com
 

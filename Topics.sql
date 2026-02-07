@@ -44,24 +44,38 @@
 
 7. Packaging - setup.py, pyproject.toml, wheels 
 
----------------- SQL + Data Modeling -------------------
+---------------- SQL -------------------
 
 1. Core SQL
-    Table/Schema - row, column
-    keys - primary key , unique key, foriegn key
-    DDL - CREATE, ALTER, DROP
-    DML - INSERT, UPDATE, DELETE 
-    DQL Commands (select) - WHERE, GROUP BY, HAVING, ORDER BY
-    Join - inner, left, right, full
-    Aggregates - count, sum, avg, min/max
+    Introduction database, SQL, MYSQL
+    DDL - CREATE, ALTER, DROP, TRUNCATE
+    DML - INSERT, UPDATE, DELETE
+    Constraint -
+    Keys -
+    Basic SQL - Data Type, Operators (AND, OR, Between) 
+    DQL Commands (select) - WHERE, Like, GROUP BY, HAVING, ORDER BY, Limit 
+    Aggregate - count, sum, avg, min/max, 
+    SQL Execution Flow
+    SQL Join - Inner, left, right, full
+    Conditional - case When -> THEN  -> Else -> END
 
-2. SQL Advanced
-    Window Functions - row_number, rank, dense_rank, lag/lead
-    Set Ops - union, intersect, except
-    Indexes - B-tree, hash, composite
+2. Transformation
+    Numeric - ROUND, Percentage, 
+    Date - now, year, MONTH, DAY, WEEKDAY, DAYNAME, DATEDIFF, ADDDATE, SUBDATE, date_format
+    Cast - datetime, CHAR, int
+    STRING  - CONCAT, CONCAT_WS, LENGTH, LOWER, substring, REPLACE, LEFT, RIGHT, REVERSE, REPEAT
 
-3. Transactions - ACID, commits, rollbacks
-4. Query Plans - explain, cost based optimizer
+3. Window Functions
+    Rank- ROW_NUMBER, RANK, DENSE_RANK
+
+4. SubQuery
+5. CTE 
+6. LAG/LEAD
+7. View
+8. STORED PROCEDURE
+9. FUNCTIONS
+
+------------------- Data Modeling ---------------
 
 5. Data Modeling
     OLTP vs OLAP
