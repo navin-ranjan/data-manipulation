@@ -28,21 +28,34 @@
 
 ----------------- Python Fundamentals -----------------------
 
-1. Environment - venv, pip, poetry, requirement.txt
-2. Core Python - Interpreted, Script
-    Variables, Datatype , Operators
-    Functions-
-    Exceptions - 
+1. Environment - venv, pip, requirement.txt
+2. Python Basic  
+    Interpreted, Script, Variables, Datatype , Operators, Type Cast
+    Conditional - if/else, nested if else
+    loop - for, while, range, break, continue, slice 
 
-3. File I/O - csv, json, parquet
-4. Logging - logging module, log levels, handlers
-5. Collections
-    list -
-    set - 
-    dict -
-    tuple -
+3. Data Structure
+    list
+    dict
+    set
+    tuple
 
-7. Packaging - setup.py, pyproject.toml, wheels 
+4. Functions
+    def, *p, **P, 
+    Lamda Function
+    Map, Filter, Reduce
+
+5. Exceptions Handling - try, except, Exception, finally, raise
+6. OOPs
+    Class, Self, Objects, Construtor, @static method, @class method, super()
+    getter, setter, Single Inheritance, Multiple Inheritance, Multi level Inheritance
+
+7. MultiThreding - ConCurrent, ThreadpoolExecutor
+8. Request - APIs, get, post, respone json, meta data
+
+9. File I/O - csv, json, parquet
+10. Logging - logging module, log levels, handlers
+11. Packaging - setup.py, pyproject.toml, wheels 
 
 ---------------- SQL -------------------
 
